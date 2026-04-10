@@ -17,14 +17,13 @@
 <body>
 
 
- <div
+ <main
       class="container d-flex justify-content-center align-items-center min-vh-100"
     >
-      <div class="">
+      <section class="">
         <h3 class="text-center mb-4">Make a Report</h3>
 
         <form>
-          
           <div class="mb-3">
             <!-- !checkbox input for issueType -->
             <label class="form-label text-center">Please select one or more issue type</label>
@@ -130,10 +129,26 @@
               >
             </div>
 
+                                    <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                name="issueType"
+                id="other"
+                value="other"
+              />
+              <label class="form-check-label" for="abandonedVehicle"
+                >Other</label
+              >
+              <input
+                  type="address"
+                  class="form-control"
+                  id="textOther"
+                  placeholder="Power outage, broken footpath, etc."
+                  
+                />
           </div>
-
-          <!-- ! no need for invalid feedback just yet, but will need to code later down the line -->
-          <!-- <div class="invalid-feedback">Please select an issue type.</div> -->
+          </div>
 
           <!-- !Continue button for form -->
                      <a href="report-location.html" class="btn btn-primary  mt-3">Continue</a>
@@ -141,8 +156,8 @@
         </form>
 
 
-      </div>
-    </div>
+      </section>
+    </main>
 
 
 
