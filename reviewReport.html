@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Report</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body>
+     <section
+      class="container d-flex justify-content-center align-items-center min-vh-100"
+    >
+      <div class="card shadow p-4 w-100" style="max-width: 500px">
+        <!-- !TITLE -->
+           <h3 class="text-center mb-4">Review your Report</h3>
+
+           <!-- !CONTENTS OF PAGE -->
+           <p>Please check your report details before submitting.</p>
+
+           <section>
+                <h5>Issue Type:</h5>
+                <p>Graffiti, Illegal Dumping</p>
+    
+                <h5>Location:</h5>
+                <p>123 Max Street, Britomart, Auckland 1234</p>
+
+                <h6>Extra Details:</h6>
+                <p>Near the bus stop on Queen Street</p>
+
+                <h5>Photos:</h5>
+                <div class="row">
+                     <div class="col-md-6">
+                          <img src="photos/photo1.jpg" alt="Photo 1" class="img-fluid">
+                     </div>
+<br>
+                     <div class="col-md-6">
+                          <img src="photos/photo2.jpeg" alt="Photo 2" class="img-fluid">
+                     </div>
+                </div>
+
+           </section>
+
+
+
+           <!-- !BUTTONS -->
+       <a href="reportLocation.html" class="btn btn-primary  mt-3">Back</a>
+         <button type="button" class="btn btn-primary  mt-3" data-bs-toggle="modal" data-bs-target="#loadingModal">Submit Report</button>
+
+           <!-- !MODAL TO SHOW LOADING -->
+           <div class="modal fade" id="loadingModal" tabindex="-1" aria-labelledby="loadingModalLabel" aria-hidden="true">
+             <div class="modal-dialog">
+               <div class="modal-content">
+                 <div class="modal-header">
+                   <h5 class="modal-title" id="loadingModalLabel">Submitting Report</h5>
+                 </div>
+                 <div class="modal-body">
+                   Please wait while we submit your report...
+                     <div class="d-flex justify-content-center mt-3">
+
+                        <!-- !LOADING SPINNER -->
+                        <div class="spinner-border" role="status">
+                          <span class="visually-hidden">Loading...</span>
+                        </div>
+                 </div>
+                          <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#successModal">Reload</button>
+               </div>
+             </div>
+           </div>
+           </div>
+
+              <!-- !MODAL TO SHOW SUCCESS -->
+                <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="successModalLabel">Report Submitted</h5>
+                      </div>
+                      <div class="modal-body">
+                        <p class="text-success">Report submitted successfully!</p>
+                        <p>We will review your report within 24 hours.</p>
+                        <p>Reference ID: 123456</p>
+                        <button type="button" class="btn btn-primary mt-3" onclick="window.location.href='trackReport.html'">Track my report</button>
+                        <button type="button" class="btn btn-primary mt-3" onclick="window.location.href='index.html'">Back to Home</button>
+</div>
+
+       </div>
+       </div>
+       </div>
+       
+       </section>
+</body>
+</html>
