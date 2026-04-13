@@ -1,0 +1,264 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #dde3f0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.card {
+  width: 100%;
+  max-width: 380px;
+  background: #f0f3fb;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(58, 91, 199, 0.15);
+}
+
+/* 鈹€鈹€ Navbar 鈹€鈹€ */
+nav {
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.menu-icon {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+}
+.menu-icon span {
+  display: block;
+  height: 2px;
+  width: 20px;
+  background: #3a5bc7;
+  border-radius: 2px;
+}
+.menu-icon span:nth-child(2) {
+  width: 14px;
+}
+
+.search {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border: 1.5px solid #c8d0e8;
+  border-radius: 99px;
+  padding: 7px 12px;
+  gap: 8px;
+}
+.search input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 13px;
+  background: transparent;
+  color: #1a2a6c;
+}
+.search input::placeholder {
+  color: #aab;
+}
+.search svg {
+  color: #3a5bc7;
+  flex-shrink: 0;
+}
+
+/* 鈹€鈹€ Main 鈹€鈹€ */
+main {
+  padding: 28px 24px 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1a2a6c;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+/* 鈹€鈹€ Form 鈹€鈹€ */
+label {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #1a2a6c;
+  margin-bottom: 7px;
+}
+
+.required {
+  color: #d94040;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+  width: 100%;
+  height: 42px;
+  border: 1.5px solid #c8d0e8;
+  border-radius: 8px;
+  background: #fff;
+  padding: 0 13px;
+  font-family: inherit;
+  font-size: 14px;
+  color: #1a2a6c;
+  outline: none;
+  margin-bottom: 14px;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="text"]:focus {
+  border-color: #3a5bc7;
+  box-shadow: 0 0 0 3px rgba(58, 91, 199, 0.12);
+}
+
+input::placeholder {
+  color: #aab;
+}
+
+/* 鈹€鈹€ Password wrap 鈹€鈹€ */
+.password-wrap {
+  position: relative;
+}
+.password-wrap input {
+  padding-right: 44px;
+}
+
+.toggle-pw {
+  position: absolute;
+  right: 12px;
+  top: 38%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #7a8ab0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+.toggle-pw:hover {
+  color: #3a5bc7;
+}
+
+/* 鈹€鈹€ Password rules 鈹€鈹€ */
+.pw-rules {
+  display: none;
+  list-style: none;
+  margin-bottom: 12px;
+}
+.pw-rules li {
+  font-size: 12px;
+  padding: 2px 0;
+}
+.pw-rules li.valid {
+  color: #3b6d11;
+}
+.pw-rules li.valid::before {
+  content: "鉁� ";
+}
+.pw-rules li.invalid {
+  color: #d94040;
+}
+.pw-rules li.invalid::before {
+  content: "鉁� ";
+}
+
+.pw-hint {
+  font-size: 12px;
+  color: #d94040;
+  margin-bottom: 12px;
+}
+
+/* 鈹€鈹€ Sign in button 鈹€鈹€ */
+.btn-signin {
+  width: 100%;
+  height: 44px;
+  background: #d94040;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  margin-bottom: 14px;
+  transition: opacity 0.2s;
+}
+.btn-signin:hover {
+  opacity: 0.88;
+}
+
+.forgot {
+  text-align: center;
+  font-size: 13px;
+  color: #3a5bc7;
+  text-decoration: none;
+  margin-bottom: 12px;
+}
+.forgot:hover {
+  text-decoration: underline;
+}
+
+.back-link {
+  text-align: center;
+  font-size: 12px;
+  color: #7a8ab0;
+  text-decoration: none;
+  margin-top: 8px;
+}
+.back-link:hover {
+  color: #3a5bc7;
+}
+
+/* 鈹€鈹€ Footer 鈹€鈹€ */
+footer {
+  background: #7a8ec4;
+  padding: 26px 24px;
+  text-align: center;
+  color: #fff;
+}
+footer h2 {
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+footer p {
+  font-size: 12px;
+  opacity: 0.8;
+  margin-bottom: 12px;
+}
+
+.contact {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #fff;
+  font-size: 13px;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 8px;
+  padding: 6px 14px;
+  transition: background 0.2s;
+}
+.contact:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
