@@ -1,0 +1,163 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #dde3f0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.card {
+  width: 100%;
+  max-width: 380px;
+  background: #f0f3fb;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(58, 91, 199, 0.15);
+}
+
+/* ── Navbar ── */
+nav {
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu-icon {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+}
+.menu-icon span {
+  display: block;
+  height: 2px;
+  width: 24px;
+  background: #3a5bc7;
+  border-radius: 2px;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #3a5bc7;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Main ── */
+main {
+  padding: 24px 20px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #3a5bc7;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+/* ── Issue list ── */
+.issue-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.issue-btn {
+  width: 100%;
+  padding: 13px 20px;
+  border: none;
+  border-radius: 99px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  background: #c8d0e8;
+  color: #1a2a6c;
+  transition: background 0.15s;
+}
+
+.issue-btn:hover {
+  background: #b0bcd8;
+}
+
+.issue-btn.selected {
+  background: #5a70b8;
+  color: #fff;
+}
+
+/* ── Continue button ── */
+.btn-continue {
+  width: 140px;
+  height: 46px;
+  border: none;
+  border-radius: 99px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  background: #3a5bc7;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(58, 91, 199, 0.3);
+}
+
+.btn-continue:hover {
+  opacity: 0.88;
+}
+
+/* ── Footer ── */
+footer {
+  background: #7a8ec4;
+  padding: 26px 24px;
+  text-align: center;
+  color: #fff;
+}
+footer h2 {
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+footer p {
+  font-size: 12px;
+  opacity: 0.8;
+  margin-bottom: 12px;
+}
+.contact {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #fff;
+  font-size: 13px;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 8px;
+  padding: 6px 14px;
+}
+.contact:hover {
+  background: rgba(255, 255, 255, 0.15);
+}

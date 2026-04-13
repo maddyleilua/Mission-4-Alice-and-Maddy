@@ -1,0 +1,226 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #dde3f0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.card {
+  width: 100%;
+  max-width: 380px;
+  background: #f0f3fb;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(58, 91, 199, 0.15);
+}
+
+/* ── Navbar ── */
+nav {
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu-icon {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+}
+.menu-icon span {
+  display: block;
+  height: 2px;
+  width: 24px;
+  background: #3a5bc7;
+  border-radius: 2px;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #3a5bc7;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Main ── */
+main {
+  padding: 24px 20px 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #3a5bc7;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  font-size: 13px;
+  color: #5a6a8a;
+  text-align: left;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+/* ── Form ── */
+label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a2a6c;
+  margin-bottom: 8px;
+}
+
+.upload-label {
+  margin-top: 8px;
+}
+
+input[type="text"] {
+  width: 100%;
+  height: 44px;
+  border: none;
+  border-radius: 10px;
+  background: #c8d4ec;
+  padding: 0 14px;
+  font-family: inherit;
+  font-size: 14px;
+  color: #1a2a6c;
+  outline: none;
+  margin-bottom: 18px;
+}
+
+input[type="text"]::placeholder {
+  color: #7a8ab0;
+}
+input[type="text"]:focus {
+  box-shadow: 0 0 0 2px #3a5bc7;
+}
+
+textarea {
+  width: 100%;
+  height: 150px;
+  border: none;
+  border-radius: 10px;
+  background: #c8d4ec;
+  padding: 12px 14px;
+  font-family: inherit;
+  font-size: 14px;
+  color: #1a2a6c;
+  outline: none;
+  resize: none;
+  margin-bottom: 18px;
+  line-height: 1.5;
+}
+
+textarea::placeholder {
+  color: #7a8ab0;
+}
+textarea:focus {
+  box-shadow: 0 0 0 2px #3a5bc7;
+}
+
+.upload-hint {
+  font-size: 11px;
+  color: #7a8ab0;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+/* ── Add photo button ── */
+.btn-add {
+  width: 110px;
+  height: 38px;
+  border: 1.5px solid #7a8ab0;
+  border-radius: 8px;
+  background: #e8edf8;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  color: #1a2a6c;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+.btn-add:hover {
+  background: #d0d8ee;
+}
+
+.photo-name {
+  font-size: 12px;
+  color: #3b6d11;
+  margin-bottom: 20px;
+}
+
+/* ── Submit button ── */
+.btn-submit {
+  width: 160px;
+  height: 48px;
+  border: none;
+  border-radius: 99px;
+  background: #3a5bc7;
+  color: #fff;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  margin: 8px auto 0;
+  display: block;
+  box-shadow: 0 4px 12px rgba(58, 91, 199, 0.3);
+}
+.btn-submit:hover {
+  opacity: 0.88;
+}
+
+/* ── Footer ── */
+footer {
+  background: #7a8ec4;
+  padding: 26px 24px;
+  text-align: center;
+  color: #fff;
+}
+footer h2 {
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+footer p {
+  font-size: 12px;
+  opacity: 0.8;
+  margin-bottom: 12px;
+}
+.contact {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #fff;
+  font-size: 13px;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 8px;
+  padding: 6px 14px;
+}
+.contact:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
