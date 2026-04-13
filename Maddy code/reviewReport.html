@@ -12,10 +12,21 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </head>
 <body>
+      <!-- !Header -->
+  <header class="header">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container">
+        <a class="navbar-brand" href="#">Fix it!</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- !Review Report -->
      <section
       class="container d-flex justify-content-center align-items-center min-vh-100"
     >
@@ -27,16 +38,16 @@
            <p>Please check your report details before submitting.</p>
 
            <section>
-                <h5>Issue Type:</h5>
+                <h5><strong>Issue Type:</strong></h5>
                 <p>Graffiti, Illegal Dumping</p>
     
-                <h5>Location:</h5>
+                <h5><strong>Location:</strong></h5>
                 <p>123 Max Street, Britomart, Auckland 1234</p>
 
-                <h6>Extra Details:</h6>
+                <h6><strong>Extra Details:</strong></h6>
                 <p>Near the bus stop on Queen Street</p>
 
-                <h5>Photos:</h5>
+                <h5><strong>Photos:</strong></h5>
                 <div class="row">
                      <div class="col-md-6">
                           <img src="photos/photo1.jpg" alt="Photo 1" class="img-fluid">
@@ -59,8 +70,9 @@
            <div class="modal fade" id="loadingModal" tabindex="-1" aria-labelledby="loadingModalLabel" aria-hidden="true">
              <div class="modal-dialog">
                <div class="modal-content">
+                <!-- MODAL HEADER -->
                  <div class="modal-header">
-                   <h5 class="modal-title" id="loadingModalLabel">Submitting Report</h5>
+                   <h5 class="modal-title" id="loadingModalLocation">Submitting Report</h5>
                  </div>
                  <div class="modal-body">
                    Please wait while we submit your report...
@@ -78,7 +90,7 @@
            </div>
 
               <!-- !MODAL TO SHOW SUCCESS -->
-                <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+                <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel">
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
@@ -87,7 +99,7 @@
                       <div class="modal-body">
                         <p class="text-success">Report submitted successfully!</p>
                         <p>We will review your report within 24 hours.</p>
-                        <p>Reference ID: 123456</p>
+                        <p><strong>Reference ID:</strong> 123456</p>
                         <p>You may use this ID to track the status of your report.</p>
                         <button type="button" class="btn btn-primary mt-3" onclick="window.location.href='trackReport.html'">Track my report</button>
                         <button type="button" class="btn btn-primary mt-3" onclick="window.location.href='#'">Back to Home</button>
@@ -96,7 +108,7 @@
        </div>
        </div>
        </div>
-
+</div>
        </section>
 </body>
 </html>

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Report Status</title>
+     <link rel="stylesheet" href="global.css">
             <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
@@ -13,20 +14,43 @@
       rel="stylesheet"
     />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
+ <!-- !Link that makes colour muted -->
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   <!-- !Global Styles -->
 </head>
 <body>
-    <section>
+  <!-- !Header -->
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container">
+        <a class="navbar-brand" href="#">Fix it!</a>
+      </div>
+    </nav>
+  </header>
+  
+  <!-- !REPORT STATUS -->
+  <section>
         <div class="container d-flex justify-content-center align-items-center min-vh-100">
 
       <div class="card shadow p-4 w-100" style="max-width: 500px">
+        <section class="container">
             <h1>Report Status</h1>
-            <p>Your report has been submitted successfully!</p>
-            <p>Reference ID: <strong>ABC12345</strong></p>
-            <p>You can use this ID to track the status of your report.</p>
+              <p><strong>Reference ID:</strong> 123456</p>
+            <ul class="d-flex row align-items-center justify-content-center">
+                <li class="center">Submitted</li>
+                <li class="mx-auto">Pending Review</li>
+                <li class="mx-auto">In progress</li>
+                <li class="mx-auto">Resolved</li>
+            </ul>
+        </section>
+<label for="Update">Update Status:</label>
+<span class="border border-3 rounded-4 p-2 border-primary"> No action taken at this moment. We will update you soon. </span>
+
+<label for="questions">Questions or Comments:</label>
+<textarea class="form-control" id="questions" rows="3" placeholder="Enter any questions or comments"></textarea>
 
             <!-- !Button to track report -->
-             <a href="trackReport.html" class="btn btn-primary mt-3">Track Report</a>
+             <a href="sentConfirmation.html" class="btn btn-primary mt-3">Send</a>
         </div>
         </div>
     </section>
