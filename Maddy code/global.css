@@ -1,0 +1,19 @@
+/* Maddy coding */
+#header {
+    background-color: blue;
+}
+.mandatory {
+    color: red;
+}
+
+section.container {
+    margin-top: 20px;
+}
+#statusSteps {
+    list-style-type: disc !important;
+    padding-left: 1em;
+}
+
+.success {
+    color: green;
+}
