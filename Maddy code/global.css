@@ -6,9 +6,33 @@
     color: red;
 }
 
-section.container {
-    margin-top: 20px;
+.subtitle {
+  font-size: 13px;
+  color: #5a6a8a;
+  text-align: left;
 }
+
+.btn-primary {
+  width: 180px;
+  padding: 13px 0;
+  border: none;
+  border-radius: 99px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
+  background: linear-gradient(to bottom, #bfd0f4, #093fb3);
+
+  cursor: pointer;
+
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+footer.bg-primary {
+    background-color: #7a8ec4 !important;
+}
+
+
 #statusSteps {
     list-style-type: disc !important;
     padding-left: 1em;
@@ -17,3 +41,6 @@ section.container {
 .success {
     color: green;
 }
+
+
+
