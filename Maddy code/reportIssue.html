@@ -59,10 +59,10 @@
     </nav>
     </header>
 
-  <!-- !Report Form -->
+  <!-- !Make a Report Form -->
  <div
       class="container d-flex justify-content-center align-items-center min-vh-100"
-    >
+    > 
       <div class="card shadow p-4 w-100" style="max-width: 500px">
         <!-- could use style
          .mw-500 {
@@ -177,6 +177,25 @@
                 >Abandoned vehicle</label
               >
             </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                name="issueType"
+                id="otherOption"
+                value="otherOption"
+              />
+              <label class="form-check-label" for="otherOption"
+                >Other</label
+              >
+            </div>
+            <input
+                  type="address"
+                  class="form-control"
+                  id="otherIssueType"
+                  placeholder="Please specify the issue type"
+                  required
+                />
 
           </div>
 
@@ -219,9 +238,6 @@
               </li>
               <li>
                 <a href="#" class="text-white text-decoration-none">Features</a>
-              </li>
-              <li>
-                <a href="#" class="text-white text-decoration-none">Contact</a>
               </li>
               <li>
                 <a href="#" class="text-white text-decoration-none"
