@@ -48,44 +48,59 @@
       </nav>
     </header>
     <!-- !Review Report -->
+
     <section
       class="container d-flex justify-content-center align-items-center min-vh-100"
     >
       <div class="p-4 w-100" style="max-width: 500px">
         <!-- !TITLE -->
-        <h3 class="text-center mb-4">Review your Report</h3>
+         <h2>Illegal Dumping</h2>
+        <h3 class="text-center mb-4 text-primary">Review your Report</h3>
 
         <!-- !CONTENTS OF PAGE -->
-        <p>Please check your report details before submitting.</p>
+        <p class="text-secondary">Please check your report details before submitting.</p>
 
+<div class="reportDetails" id="reportDetails">
+          <h5 class=""><strong>Issue Type:</strong></h5>
+            <p>Illegal Rubbish Dumping</p>
 
-          <h5><strong>Issue Type:</strong></h5>
-          <p>Graffiti, Illegal Dumping</p>
+                    <h5><strong>Description:</strong></h5>
+          <p>Large pile of rubbish near the footpath</p>
 
           <h5><strong>Location:</strong></h5>
-          <p>123 Max Street, Britomart, Auckland 1234</p>
+          <p>Pah Rd, Epsom, Auckland 1234</p>
+</div>
 
-          <h6><strong>Extra Details:</strong></h6>
-          <p>Near the bus stop on Queen Street</p>
 
           <h5><strong>Photos:</strong></h5>
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-3 mb-3">
               <img src="photos/photo1.jpg" alt="Photo 1" class="img-fluid" />
             </div>
-            <br />
-            <div class="col-md-6">
+            <div class="col-md-3 mb-3">
               <img src="photos/photo2.jpeg" alt="Photo 2" class="img-fluid" />
             </div>
-            <div class="col-md-6">
+            <div class="col-md-3 mb-3">
               <img src="photos/photo3.jpg" alt="Photo 3" class="img-fluid" />
             </div>
           </div>
+
+
+
+
+
+
+
           </div>
+
+
+
+
         </section>
 
         <!-- !BUTTONS -->
         <a href="reportLocation.html" class="btn btn-primary mt-3">Back</a>
+        <br>
         <button
           type="button"
           class="btn btn-primary mt-3"
@@ -94,8 +109,10 @@
         >
           Submit Report
         </button>
+        <br>
 
         <!-- !MODAL TO SHOW LOADING -->
+      <section>
         <div
           class="modal fade"
           id="loadingModal"
@@ -169,7 +186,6 @@
             </div>
           </div>
         </div>
-      </div>
     </section>
 
     <!-- !FOOTER -->
