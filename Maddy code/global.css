@@ -1,14 +1,35 @@
 /* Maddy coding */
-#header {
-    background-color: blue;
-}
-.mandatory {
-    color: red;
+
+
+.subtitle {
+  font-size: 13px;
+  color: #5a6a8a;
+  text-align: left;
 }
 
-section.container {
-    margin-top: 20px;
+/* Custom Button Styles applies to all */
+.btn-primary {
+  width: 160px;
+  height: 48px;
+  border: none;
+  border-radius: 99px;
+  background: #3a5bc7;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0 auto;
+  display: block;
+
 }
+
+footer.bg-primary {
+    background-color: #7a8ec4 !important;
+}
+
+.text-primary {
+    color: #3a5bc7 !important;
+}
+
 #statusSteps {
     list-style-type: disc !important;
     padding-left: 1em;
@@ -17,3 +38,12 @@ section.container {
 .success {
     color: green;
 }
+
+/* Report Details, this puts the detailed texts into boxes */
+.reportDetails p{
+    background-color: #c8d4ec;
+    padding: 20px;
+    border-radius: 15px;
+
+}
+
