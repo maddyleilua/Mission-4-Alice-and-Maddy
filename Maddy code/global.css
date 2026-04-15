@@ -1,6 +1,5 @@
 /* Maddy coding */
 
-
 .subtitle {
   font-size: 13px;
   color: #5a6a8a;
@@ -19,7 +18,6 @@
   font-weight: 500;
   margin: 0 auto;
   display: block;
-
 }
 
 /* Small Button Styles A-Z navbar */
@@ -36,27 +34,25 @@
   cursor: pointer;
 }
 footer.bg-primary {
-    background-color: #7a8ec4 !important;
+  background-color: #7a8ec4 !important;
 }
 
 .text-primary {
-    color: #3a5bc7 !important;
+  color: #3a5bc7 !important;
 }
 
 #statusSteps {
-    list-style-type: disc !important;
-    padding-left: 1em;
+  list-style-type: disc !important;
+  padding-left: 1em;
 }
 
 .success {
-    color: green;
+  color: green;
 }
 
 /* Report Details, this puts the detailed texts into boxes */
-.reportDetails p{
-    background-color: #c8d4ec;
-    padding: 20px;
-    border-radius: 15px;
-
+.reportDetails p {
+  background-color: #c8d4ec;
+  padding: 20px;
+  border-radius: 15px;
 }
-
