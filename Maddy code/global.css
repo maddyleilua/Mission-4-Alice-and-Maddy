@@ -22,6 +22,19 @@
 
 }
 
+/* Small Button Styles A-Z navbar */
+.btn-sm {
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  border-radius: 99px;
+  background: #3a5bc7;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  cursor: pointer;
+}
 footer.bg-primary {
     background-color: #7a8ec4 !important;
 }
