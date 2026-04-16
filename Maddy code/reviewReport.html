@@ -17,10 +17,12 @@
   </head>
   <body>
     <!-- !Header -->
-    <header class="header" id="header">
-      <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+    <header class="header">
+      <nav class="navbar navbar-expand-md fixed-top">
         <div class="container">
           <a class="navbar-brand text-primary" href="#">Fix It!</a>
+
+          <!-- A-Z button -->
 <button class="btn btn-outline-primary btn-sm">A-Z</button>
           <button
             class="navbar-toggler"
@@ -31,6 +33,7 @@
             <span class="navbar-toggler-icon"></span>
           </button>
 
+          <!-- 🍔 menu -->
           <div class="collapse navbar-collapse" id="mainNavbar">
             <ul class="navbar-nav ms-auto d-flex">
               <li class="nav-item active">
@@ -47,32 +50,33 @@
         </div>
       </nav>
     </header>
-    <!-- !Review Report -->
 
+
+    <!-- !Review Report -->
     <section
       class="container d-flex justify-content-center align-items-center min-vh-100"
     >
-      <div class="p-4 w-100" style="max-width: 500px">
-        <!-- !TITLE -->
-         <h2>Illegal Dumping</h2>
-        <h3 class="text-center mb-4 text-primary">Review your Report</h3>
+      <div class="review-report p-4 w-100" style="max-width: 500px">
+        <!-- TITLE -->
+        <h1 class="text-center mb-4 text-primary">Review your Report</h1>
 
-        <!-- !CONTENTS OF PAGE -->
+        <!-- CONTENTS OF PAGE -->
         <p class="text-secondary">Please check your report details before submitting.</p>
 
 <div class="reportDetails" id="reportDetails">
-          <h5 class=""><strong>Issue Type:</strong></h5>
+          <label class="form-label"><strong>Issue Type:</strong></label>
             <p>Illegal Rubbish Dumping</p>
 
-                    <h5><strong>Description:</strong></h5>
+                    <label class="form-label"><strong>Description:</strong></label>
           <p>Large pile of rubbish near the footpath</p>
 
-          <h5><strong>Location:</strong></h5>
+          <label class="form-label"><strong>Location:</strong></label>
           <p>Pah Rd, Epsom, Auckland 1234</p>
-</div>
 
 
-          <h5><strong>Photos:</strong></h5>
+
+          <label class="form-label"><strong>Photos:</strong></label>
+          </div>
           <div class="row">
             <div class="col-md-3 mb-3">
               <img src="photos/photo1.jpg" alt="Photo 1" class="img-fluid" />
@@ -84,13 +88,6 @@
               <img src="photos/photo3.jpg" alt="Photo 3" class="img-fluid" />
             </div>
           </div>
-
-
-
-
-
-
-
           </div>
 
 
@@ -99,8 +96,9 @@
         </section>
 
         <!-- !BUTTONS -->
+         <section class="buttons">
         <a href="reportLocation.html" class="btn btn-primary mt-3">Back</a>
-        <br>
+
         <button
           type="button"
           class="btn btn-primary mt-3"
@@ -110,9 +108,9 @@
           Submit Report
         </button>
         <br>
+        </section>
 
         <!-- !MODAL TO SHOW LOADING -->
-      <section>
         <div
           class="modal fade"
           id="loadingModal"
@@ -186,10 +184,10 @@
             </div>
           </div>
         </div>
-    </section>
+
 
     <!-- !FOOTER -->
-    <footer class="bg-primary text-white pt-5 pb-2">
+    <footer class="footer text-white pt-5 pb-2">
       <div class="container text-md-start text-center">
         <div class="row">
 
