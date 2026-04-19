@@ -11,7 +11,7 @@ header {
 }
 
 body {
-  background: #f0f3fb;
+  background:  #f0f3fb;
 }
 nav {
   display: flex;
@@ -112,8 +112,6 @@ div.review-report {
 }
 
 footer.footer {
-  padding: 1rem;
-  text-align: center;
   background:  #7a8ec4;
   color: #5a6a8a;
   font-size: 14px;
