@@ -61,12 +61,12 @@ section.container {
   color: #3a5bc7 !important;
 }
 
-/* Subtext */
+/* Subtext color*/
 .text-secondary {
   color: #5a6a8a !important;
 }
 
-/* Labels */
+/* Labels text color*/
 .form-label {
   color: #1a2a6c !important;
 }
@@ -85,10 +85,23 @@ section.container {
   border-radius: 15px;
 }
 
+/* Report history, puts text in boxes */
+.myReportHistory p {
+  background-color: #c8d4ec;
+  padding: 20px;
+  border-radius: 15px;
+}
+
 /* adding spacing */
 div.review-report {
   padding: 20px;
   border-radius: 15px;
+
+}
+
+/* modal styles, brings it to the middle */
+.modal {
+        top: 25%;
 
 }
 

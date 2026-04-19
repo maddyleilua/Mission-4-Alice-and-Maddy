@@ -46,11 +46,13 @@
             </ul>
           </div>
 
+          <div class="d-flex justify-content-end">
           <!-- A-Z button -->
 <button class=" btn btn-outline-primary btn-sm">A-Z</button>
 
 <!-- Search Icon -->
 <i class="bi bi-search text-primary fs-1"></i>
+</div>
         </div>
       </nav>
     </header>
@@ -77,10 +79,28 @@
           <label class="form-label"><strong>Location:</strong></label>
           <p>Pah Rd, Epsom, Auckland 1234</p>
 
+ <button id="Show-location" class="btn btn-primary mt-3">
+              Show my location
+            </button>
+            <br>
+            <p id="location"></p>
+            
 
+            <!-- !MAP -->
+            <iframe
+              id="map"
+              src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d9343.80396806113!2d174.77039956534725!3d-36.848335930718676!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2snz!4v1767826261837!5m2!1sen!2snz"
+              width="300"
+              height="300"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+
+<br>
 
           <label class="form-label"><strong>Photos:</strong></label>
-          </div>
           <div class="row">
             <div class="col-md-3 mb-3">
               <img src="photos/photo1.jpg" alt="Photo 1" class="img-fluid" />
@@ -214,5 +234,31 @@
         &copy; 2026 Fix It. All rights reserved.
       </div>
     </footer>
+
+
+    <!-- !JAVASCRIPT FOR LOCATION -->
+    <script>
+      const findMeButton = document.getElementById("Show-location");
+      const locationText = document.getElementById("location");
+      const map = document.getElementById("map");
+      findMeButton.addEventListener("click", () => {
+        locationText.innerHTML =
+          "Finding your location...<br><div class='spinner-border'></div>";
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            const lat = position.coords.latitude;
+            const lon = position.coords.longitude;
+            const locationString = `https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d9343.80396806113!2d${lon}!3d${lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2snz!4v1767826261837!5m2!1sen!2snz`;
+
+            locationText.textContent = `Latitude: ${lat}, Longitude: ${lon}`;
+            map.src = locationString;
+          },
+          // error
+          () => {
+            locationText.textContent = "Unable to get your location";
+          },
+        );
+      });
+    </script>
   </body>
 </html>
