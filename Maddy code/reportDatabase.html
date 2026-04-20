@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Report History</title>
-           <link rel="stylesheet" href="global.css">
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
@@ -15,8 +14,9 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <style>
+/* Dropdown Button */
 .dropbtn {
-  background-color: #04AA6D;
+  background-color: #3a5bc7;
   color: white;
   padding: 16px;
   font-size: 16px;
@@ -24,38 +24,44 @@
   cursor: pointer;
 }
 
+/* dropdown focus */
 .dropbtn:hover, .dropbtn:focus {
-  background-color: #3e8e41;
+  background-color: #5a6a8a;
 }
 
+/* search field */
 #myInput {
   box-sizing: border-box;
-  background-image: url('searchicon.png');
   background-position: 14px 12px;
   background-repeat: no-repeat;
   font-size: 16px;
-  padding: 14px 20px 12px 45px;
+  padding-right:10rem !important;
+  padding: 1rem;
   border: none;
   border-bottom: 1px solid #ddd;
 }
 
+/* search field focus */
 #myInput:focus {outline: 3px solid #ddd;}
 
+/* the container <div> - needed to position the dropdown content */
 .dropdown {
   position: relative;
   display: inline-block;
 }
 
+/* dropdown content (hidden by default) */
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f6f6f6;
+  background-color: #f0f3fb;
   min-width: 230px;
   overflow: auto;
   border: 1px solid #ddd;
   z-index: 1;
 }
 
+/* links inside the dropdown */
 .dropdown-content a {
   color: black;
   padding: 12px 16px;
@@ -63,86 +69,106 @@
   display: block;
 }
 
-.dropdown a:hover {background-color: #ddd;}
-
+/* show the dropdown content connected to JavaScript */
 .show {display: block;}
 </style>
+
+           <link rel="stylesheet" href="global.css">
 </head>
 <body>
     <!-- !Header -->
-     <header class="header" id="header">
-<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
-      <div class="container">
-        <a class="navbar-brand text-primary" href="#">Fix It!</a>
+    <header class="header">
+      <nav class="navbar navbar-expand-md fixed-top">
+        <div class="container">
+          <!-- navbar 🍔 menu button -->
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainNavbar"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#mainNavbar"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+          <!-- 🍔 menu contents, collapse -->
+          <div class="collapse navbar-collapse" id="mainNavbar">
+            <ul class="navbar-nav ms-auto d-flex">
+              <li class="nav-item active">
+                <a class="nav-link text-primary" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-primary" href="#">Features</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-primary" href="#">Contact</a>
+              </li>
+            </ul>
+          </div>
 
-        <div class="collapse navbar-collapse" id="mainNavbar">
-          <ul class="navbar-nav ms-auto d-flex ">
-            <li class="nav-item active">
-              <a class="nav-link text-primary" href="#">Home</a>
-            </li>
-            <li class="nav-item"><a class="nav-link text-primary" href="#">Features</a></li>
-            <li class="nav-item"><a class="nav-link  text-primary" href="#">Contact</a></li>
-          </ul>
+          <!-- div class keeps icons to the right side -->
+          <div class="d-flex justify-content-end">
+            <!-- A-Z button -->
+            <button class="btn btn-outline-primary btn-sm" onclick="window.location.href = 'reportDatabase.html'">A - Z</button>
+
+            <!-- Search Icon -->
+            <i class="bi bi-search text-primary fs-1 p-1"></i>
+          </div>
         </div>
-
-        <!-- !Search bar -->
-        <search class="collapse navbar-collapse" id="searchNavbar">
-          <form class="d-flex">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-primary" type="submit">
-              <i class="bi bi-search"></i>
-            </button>
-          </form>
-        </search>
-      </div>
-    </nav>
+      </nav>
     </header>
 
     <!-- !Report History -->
     <section class="container d-flex justify-content-center align-items-center min-vh-100">
         <div class="" style="max-width: 500px">
             <h1>Report History</h1>
-            <p>You have not submitted any reports yet.</p>
-            <p> To ensure there is no duplicate reports, please use the search bar below.</p>
-                   
+            <p>You have submitted 1 report.</p>
+            <article class="myReport" onclick="window.location.href = 'myReportHistory.html'">
+
+              <h2>Illegal Rubbish Dumping</h2>
+                            <p><strong>Report ID:</strong> Z12345</p>
+              <p><strong>Location:</strong> 123 Pah Rd, Epsom, Auckland 1234</p>
+              <p><strong>Date Submitted:</strong> 2023-10-01</p>
+              <button class="btn btn-outline-primary" onclick="window.location.href = 'myReportHistory.html'">
+              View Report Details
+            </button>
+            </article>
+
+        <!-- divider -->
+        <hr class="mb-3" style="opacity: 0.2" />
+
+        <!-- want to submit a new report? -->
+<h2>Want to submit a new report?</h2>
+<a href="/Mission-4-Alice-and-Maddy/page3.html">Click here</a>
+
+
+
+
+
+            <br>
+            <p> To ensure there is no duplicate reports, please click the "Report Database" button below and search.</p>
 
 
 
         <div class="dropdown">
-  <button onclick="myFunction()" class="dropbtn">Report Database</button>     <button class="btn btn-outline-primary" type="submit">
-              <i class="bi bi-search"></i>
+  <button onclick="myFunction()" class="dropbtn">Report Database <i class="bi bi-search"></i></button> 
             </button>
   <div id="myDropdown" class="dropdown-content">
     <input type="text" placeholder="Search..." id="myInput" onkeyup="filterFunction()">
-    <a href="#">Illegal Dumping in Manurewa</a>
-    <a href="#">Graffiti in Otahuhu</a>
-    <a href="#">Broken streetlight in Manukau</a>
-    <a href="#">Power outage in Albany</a>
-    <a href="#">Abandoned vehicle in Otara</a>
-    <a href="#">Graffiti in Onehunga</a>
-    <a href="#">Illegal Dumping in Otahuhu</a>
-    <a href="#">Potholes in Albany</a>
-    <a href="#">Flooding in Britomart</a>
-    <a href="#">Power outage in Mt Roskill</a>
-    <a href="#">Illegal Dumping in Ormiston</a>
-    <a href="#">Noise complaint in Otahuhu</a>
-    <a href="#">Other (Ram Raid) in Manurewa</a>
-    <a href="#">Illegal Dumping in Manukau</a>
-    <a href="#">Graffiti in Papatoetoe</a>
+    <a href="#">Illegal Dumping in Manurewa <i class="bi bi-circle-fill justify-item-end text-danger"></i></a>
+    <a href="graffitiOtahuhu.html">Graffiti in Otahuhu <i class="bi bi-circle-fill justify-item-end text-warning"></i></a>
+    <a href="#">Broken streetlight in Manukau <i class="bi bi-circle-fill justify-item-end text-danger"></i></a>
+    <a href="#">Power outage in Albany <i class="bi bi-circle-fill justify-item-end text-danger"></i></a>
+    <a href="#">Abandoned vehicle in Otara <i class="bi bi-circle-fill justify-item-end text-danger"></i></a>
+    <a href="#">Graffiti in Onehunga <i class="bi bi-circle-fill justify-item-end text-danger"></i></a>
+    <a href="#">Illegal Dumping in Otahuhu <i class="bi bi-circle-fill justify-item-end text-danger"></i></a>
+    <a href="#">Potholes in Albany <i class="bi bi-circle-fill justify-item-end text-danger"></i></a>
+    <a href="#">Flooding in Britomart <i class="bi bi-circle-fill justify-item-end text-danger"></i></a>
+    <a href="#">Power outage in Mt Roskill <i class="bi bi-circle-fill justify-item-end text-danger"></i></a>
+    <a href="#">Illegal Dumping in Ormiston <i class="bi bi-circle-fill justify-item-end text-danger"></i></a>
+    <a href="#">Noise complaint in Otahuhu <i class="bi bi-circle-fill justify-item-end text-danger"></i></a>
+    <a href="#">Other (Ram Raid) in Manurewa <i class="bi bi-circle-fill justify-item-end text-danger"></i></a>
+    <a href="#">Illegal Dumping in Manukau <i class="bi bi-circle-fill justify-item-end text-danger"></i></a>
+    <a href="#">Graffiti in Papatoetoe <i class="bi bi-circle-fill justify-item-end text-danger"></i></a>
 </div>
 </div>
 
@@ -150,8 +176,35 @@
         </div>
         </section>
 
+    <!-- !FOOTER -->
+    <footer class="footer text-white pt-5 pb-2">
+      <div class="container text-md-start text-center">
+        <div class="row">
+
+<!-- need help -->
+          <div class="col-md-4 mb-4">
+            <h5>Need Help?</h5>
+            <p>Get in touch with us.</p>
+            <!-- Contact us button -->
+            <a
+              href=""
+              class="btn btn-outline-light text-white text-decoration-none"
+            >
+              <i class="bi bi-envelope"></i> Contact us
+            </a>
+          </div>
+        </div>
+        <!-- divider -->
+        <hr class="mb-3" style="opacity: 0.2" />
+        <!-- !COPYRIGHT -->
+        &copy; 2026 Fix It. All rights reserved.
+      </div>
+    </footer>
+
         <!-- !JAVASCRIPT -->
          <script>
+
+
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
 function myFunction() {

@@ -20,7 +20,6 @@
     <header class="header">
       <nav class="navbar navbar-expand-md fixed-top">
         <div class="container">
-
           <!-- navbar 🍔 menu button -->
           <button
             class="navbar-toggler"
@@ -46,11 +45,14 @@
             </ul>
           </div>
 
-          <!-- A-Z button -->
-<button class=" btn btn-outline-primary btn-sm">A-Z</button>
+          <!-- div class keeps icons to the right side -->
+          <div class="d-flex justify-content-end">
+            <!-- A-Z button -->
+            <button class="btn btn-outline-primary btn-sm" onclick="window.location.href = 'reportDatabase.html'">A - Z</button>
 
-<!-- Search Icon -->
-<i class="bi bi-search text-primary fs-1"></i>
+            <!-- Search Icon -->
+            <i class="bi bi-search text-primary fs-1 p-1"></i>
+          </div>
         </div>
       </nav>
     </header>
@@ -62,13 +64,13 @@
                       <h1 class="text-primary text-center">My Report History</h1>
                 <br>
                       <label class="form-label"><strong>Issue Type:</strong></label>
-                <p>Graffiti, Illegal Dumping</p>
+                <p>Illegal Dumping</p>
     
                 <label class="form-label"><strong>Location:</strong></label>
-                <p>123 Max Street, Britomart, Auckland 1234</p>
+                <p>123 Pah Rd, Epsom, Auckland 1234</p>
 
                 <label class="form-label"><strong>Extra Details:</strong></label>
-                <p>Near the bus stop on Queen Street</p>
+                <p>Large pile of rubbish near the footpath along the street, bus stop</p>
 
                 <label class="form-label"><strong>Photos:</strong></label>
                 <div class="photos row g-3">
@@ -85,14 +87,15 @@
 
                 <br>
                 <label class="form-label"><strong>Status:</strong></label>
-                <p>Pending Review...</p>
+                <p><strong>In Progress...</strong></p>
+                <p>No action taken yet. Please check back later for updates.</p>
 
            </section>
         </div>
     </main>
 
 <!-- !BUTTONS -->
- <button class="btn btn-primary"> Add comment </button>
+ <button class="btn btn-primary" onclick="window.location.href = 'reportStatus.html'"> Add comment </button>
  <br>
  <button class="btn btn-primary" onclick="window.location.href = '/mission-4-Alice-and-Maddy/home.html'">Home</button>
 <br>
