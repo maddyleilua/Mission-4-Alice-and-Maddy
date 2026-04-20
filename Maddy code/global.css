@@ -10,16 +10,19 @@ header {
   padding: 2rem;
 }
 
+/* background of entire screen */
 body {
-  background:  #f0f3fb;
+  background: #f0f3fb;
 }
+
 nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-    background: #f0f3fb;
+  background: #f0f3fb;
 }
 
+/* main body section */
 section.container {
   display: flex;
   align-items: center;
@@ -38,21 +41,17 @@ section.container {
   font-weight: 500;
   margin: 0 auto;
   display: block;
-  
 }
 
 /* Small Button Styles A-Z navbar */
 .btn-sm {
-  height: 40px;
+  display: flex;
+  align-items: center;
+  height: 50px;
   border-radius: 50%;
-  border: none;
-  border-radius: 99px;
   background: #3a5bc7;
-  font-family: inherit;
-  font-size: 14px;
   font-weight: 500;
   color: #fff;
-  cursor: pointer;
 }
 
 /* Text Colors */
@@ -71,48 +70,40 @@ section.container {
   color: #1a2a6c !important;
 }
 
-
-
 /* Makes the text green for success messages */
 .success {
   color: green;
 }
 
-/* Report Details, this puts the detailed texts into boxes */
-.reportDetails p {
+/* Puts important detailed texts into boxes */
+.reportDetails p, .myReportHistory p, .statusReport p.comment, article.myReport {
   background-color: #c8d4ec;
   padding: 20px;
   border-radius: 15px;
 }
 
-/* Report history, puts text in boxes */
-.myReportHistory p {
-  background-color: #c8d4ec;
-  padding: 20px;
-  border-radius: 15px;
-}
+
 
 /* adding spacing */
 div.review-report {
   padding: 20px;
   border-radius: 15px;
-
 }
 
 /* modal styles, brings it to the middle */
 .modal {
-        top: 25%;
-
+  top: 25%;
 }
 
-.statusReport p.comment {
-  padding: 1.5rem;
-    background-color: #c8d4ec;
-  border-radius: 15px;
+/* status report styles */
+i.bi-circle-fill {
+  display: flex;
+  justify-content: flex-end;
+  align-items: start;
 }
 
 footer.footer {
-  background:  #7a8ec4;
+  background: #7a8ec4;
   color: #5a6a8a;
   font-size: 14px;
 }

@@ -18,11 +18,10 @@
  <!-- !Global Styles -->
 </head>
 <body>
-  <!-- !Header -->
- <header class="header">
+    <!-- !Header -->
+    <header class="header">
       <nav class="navbar navbar-expand-md fixed-top">
         <div class="container">
-
           <!-- navbar 🍔 menu button -->
           <button
             class="navbar-toggler"
@@ -48,11 +47,14 @@
             </ul>
           </div>
 
-          <!-- A-Z button -->
-<button class=" btn btn-outline-primary btn-sm">A-Z</button>
+          <!-- div class keeps icons to the right side -->
+          <div class="d-flex justify-content-end">
+            <!-- A-Z button -->
+            <button class="btn btn-outline-primary btn-sm" onclick="window.location.href = 'reportDatabase.html'">A - Z</button>
 
-<!-- Search Icon -->
-<i class="bi bi-search text-primary fs-1"></i>
+            <!-- Search Icon -->
+            <i class="bi bi-search text-primary fs-1 p-1"></i>
+          </div>
         </div>
       </nav>
     </header>
