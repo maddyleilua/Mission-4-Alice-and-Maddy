@@ -48,7 +48,12 @@
           <!-- div class keeps icons to the right side -->
           <div class="d-flex justify-content-end">
             <!-- A-Z button -->
-            <button class="btn btn-outline-primary btn-sm" onclick="window.location.href = 'reportDatabase.html'">A - Z</button>
+            <button
+              class="btn btn-outline-primary btn-sm"
+              onclick="window.location.href = 'reportDatabase.html'"
+            >
+              A - Z
+            </button>
 
             <!-- Search Icon -->
             <i class="bi bi-search text-primary fs-1 p-1"></i>
@@ -75,13 +80,15 @@
           <p>Illegal Rubbish Dumping</p>
 
           <label class="form-label"><strong>Description:</strong></label>
-          <p>Large pile of rubbish near the footpath along the street, bus stop</p>
+          <p>
+            Large pile of rubbish near the footpath along the street, bus stop
+          </p>
 
           <label class="form-label"><strong>Location:</strong></label>
           <p>123 Pah Rd, Epsom, Auckland 1234</p>
 
-          <button id="Show-location" class="btn btn-primary mt-3">
-            Show my location
+          <button id="Show-location" class="btn btn-secondary location-btn">
+            Use current location
           </button>
           <br />
           <p id="location"></p>
@@ -97,7 +104,7 @@
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
           ></iframe>
-<br>
+          <br />
           <br />
           <label class="form-label"><strong>Photos:</strong></label>
           <div class="row">
@@ -189,7 +196,17 @@
           <div class="modal-body">
             <p class="text-success">Report submitted successfully!</p>
             <p>We will review your report within 24 hours.</p>
-            <p><strong>Reference ID:</strong> 123456</p>
+            <p>
+              <strong>Reference ID:</strong>
+              <input type="text" value="Z123456" id="myInput" />
+            </p>
+
+            <!-- The button used to copy the text -->
+            <button class="btn btn-primary" onclick="copyCode()">
+              Copy code
+            </button>
+            <br />
+
             <p>You may use this ID to track the status of your report.</p>
             <button
               type="button"
@@ -214,8 +231,7 @@
     <footer class="footer text-white pt-5 pb-2">
       <div class="container text-md-start text-center">
         <div class="row">
-
-<!-- need help -->
+          <!-- need help -->
           <div class="col-md-4 mb-4">
             <h5>Need Help?</h5>
             <p>Get in touch with us.</p>
@@ -258,6 +274,22 @@
           },
         );
       });
+
+      // !JAVASCRIPT FOR COPY TO CLIPBOARD
+      function copyCode() {
+        // Get the text field
+        const copyText = document.getElementById("myInput");
+
+        // Select the text field
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); // For mobile devices
+
+        // Copy the text inside the text field
+        navigator.clipboard.writeText(copyText.value);
+
+        // Alert the copied text
+        alert("Copied the text: " + copyText.value);
+      }
     </script>
   </body>
 </html>

@@ -36,7 +36,16 @@ section.container {
   border: none;
   border-radius: 99px;
   background: #3a5bc7;
-  font-family: inherit;
+  font-weight: 500;
+  margin: 0 auto;
+  display: block;
+}
+
+.location-btn, .view-btn {
+  width: 15rem;
+  height: 48px;
+background: #3a5bc7;
+  border-radius: 99px;
   font-size: 16px;
   font-weight: 500;
   margin: 0 auto;
@@ -62,12 +71,12 @@ section.container {
 
 /* Subtext color*/
 .text-secondary {
-  color: #5a6a8a !important;
+  color: #5a6a8a;
 }
 
 /* Labels text color*/
 .form-label {
-  color: #1a2a6c !important;
+  color: #1a2a6c;
 }
 
 /* Makes the text green for success messages */
@@ -80,8 +89,42 @@ section.container {
   background-color: #c8d4ec;
   padding: 20px;
   border-radius: 15px;
+  color: #1a2a6c;
 }
 
+/* textarea styles */
+input[type="text"] {
+  width: 100%;
+  border: none;
+  background: #c8d4ec;
+}
+
+input[type="text"]::placeholder {
+  color: #7a8ab0;
+}
+input[type="text"]:focus {
+  box-shadow: 0 0 0 2px #3a5bc7;
+}
+
+
+/* text area for report status: questions or comments */
+textarea {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  background: #c8d4ec;
+  padding: 12px 14px;
+  color: #1a2a6c;
+  outline: none;
+  resize: none;
+}
+
+textarea::placeholder {
+  color: #7a8ab0;
+}
+textarea:focus {
+  box-shadow: 0 0 0 2px #3a5bc7;
+}
 
 
 /* adding spacing */
