@@ -77,17 +77,17 @@
 
         <div class="reportDetails" id="reportDetails">
           <label class="form-label"><strong>Issue Type:</strong></label>
-          <p>Illegal Rubbish Dumping</p>
+          <p id="IssueType">Illegal Rubbish Dumping</p>
 
           <label class="form-label"><strong>Description:</strong></label>
-          <p>
+          <p id="Description">
             Large pile of rubbish near the footpath along the street, bus stop
           </p>
 
           <label class="form-label"><strong>Location:</strong></label>
-          <p>123 Pah Rd, Epsom, Auckland 1234</p>
+          <p id="IssueLocation">123 Pah Rd, Epsom, Auckland 1234</p>
 
-          <button id="Show-location" class="btn btn-secondary location-btn">
+          <button id="Show-location" class="btn btn-secondary location-btn mt-3">
             Use current location
           </button>
           <br />
@@ -109,13 +109,25 @@
           <label class="form-label"><strong>Photos:</strong></label>
           <div class="row">
             <div class="col-md-3 mb-3">
-              <img src="photos/photo1.jpg" alt="Pile of rubbish" class="img-fluid" />
+              <img
+                src="photos/photo1.jpg"
+                alt="Pile of rubbish"
+                class="img-fluid"
+              />
             </div>
             <div class="col-md-3 mb-3">
-              <img src="photos/photo2.jpeg" alt="Graffiti on bus stop" class="img-fluid" />
+              <img
+                src="photos/photo2.jpeg"
+                alt="Graffiti on bus stop"
+                class="img-fluid"
+              />
             </div>
             <div class="col-md-3 mb-3">
-              <img src="photos/photo3.jpg" alt="Pile of rubbish alongside footpath" class="img-fluid" />
+              <img
+                src="photos/photo3.jpg"
+                alt="Pile of rubbish alongside footpath"
+                class="img-fluid"
+              />
               <!-- Renamed alternative names to something more descriptive than the original "Photo 1, Photo 2, Photo 3 " -->
             </div>
           </div>
@@ -125,11 +137,19 @@
 
     <!-- !BUTTONS -->
     <section class="buttons">
-      <button type="button" class="btn btn-primary mt3">Edit</button>
+      <button
+        type="button"
+        class="btn btn-primary"
+        id="editButton"
+        onclick="toggle()"
+      >
+        Edit
+      </button>
+      <!-- I made the mistake of not adding the onclick attribute -->
       <button
         type="button"
         class="btn btn-primary mt-3"
-        onclick="window.location.href = 'reportLocation.html'"
+        onclick="window.location.href = '/Mission-4-Alice-and-Maddy/page4.html'"
       >
         Back
       </button>
@@ -275,6 +295,74 @@
           },
         );
       });
+
+      // Edit button to enable editing of report details
+      let editing = false;
+      const IssueType = document.getElementById("IssueType");
+      const Description = document.getElementById("Description");
+      const IssueLocation = document.getElementById("IssueLocation");
+      const btn = document.getElementById("editButton");
+      let inputIssueType = null;
+      let inputDescription = null;
+      let inputIssueLocation = null;
+
+      function toggle() {
+        if (!editing) {
+          // Switch to edit mode
+          inputIssueType = document.createElement("select");
+          inputIssueType.className = "form-select";
+
+          const options = [
+            "Illegal Rubbish Dumping",
+            "Broken Streetlight",
+            "Damaged Playground Equipment",
+            "Potholes",
+            "Graffiti",
+            "Dogs",
+            "Complain about noise",
+            "Abandoned vehicles",
+            "Other Issues",
+          ];
+          options.forEach((option) => {
+            const opt = document.createElement("option");
+            opt.value = option;
+            opt.textContent = option;
+            inputIssueType.appendChild(opt);
+          });
+
+          IssueType.parentNode.replaceChild(inputIssueType, IssueType); // swap <p> → <input>
+
+          inputDescription = document.createElement("input");
+          inputDescription.type = "text";
+          inputDescription.value = Description.innerText;
+          Description.parentNode.replaceChild(inputDescription, Description);
+
+          inputIssueLocation = document.createElement("input");
+          inputIssueLocation.type = "text";
+          inputIssueLocation.value = IssueLocation.innerText;
+          IssueLocation.parentNode.replaceChild(
+            inputIssueLocation,
+            IssueLocation,
+          );
+
+          btn.textContent = "Save";
+          inputIssueType.focus();
+          inputDescription.focus();
+          inputIssueLocation.focus();
+          editing = true;
+        } else {
+          // Switch back to display mode
+          IssueType.innerText = inputIssueType.value;
+          inputIssueType.parentNode.replaceChild(IssueType, inputIssueType); // swap <input> → <p>
+          Description.innerText = inputDescription.value;
+          inputDescription.parentNode.replaceChild(Description, inputDescription);
+          IssueLocation.innerText = inputIssueLocation.value;
+          inputIssueLocation.parentNode.replaceChild(IssueLocation, inputIssueLocation);
+
+          btn.textContent = "Edit";
+          editing = false;
+        }
+      }
 
       // !JAVASCRIPT FOR COPY TO CLIPBOARD
       function copyCode() {

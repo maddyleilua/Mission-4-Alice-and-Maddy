@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="display">Click edit to change me!</p>
+<button id="actionBtn" onclick="toggle()">Edit</button>
+
+<script>
+  let editing = false;
+  const display = document.getElementById('display');
+  const btn = document.getElementById('actionBtn');
+  let input = null;
+
+  function toggle() {
+    if (!editing) {
+      // Switch to edit mode
+      input = document.createElement('input');
+      input.type = 'text';
+      input.value = display.innerText;
+      display.parentNode.replaceChild(input, display); // swap <p> → <input>
+      btn.textContent = 'Save';
+      input.focus();
+      editing = true;
+    } else {
+      // Switch back to display mode
+      display.innerText = input.value;
+      input.parentNode.replaceChild(display, input);   // swap <input> → <p>
+      btn.textContent = 'Edit';
+      editing = false;
+    }
+  }
+</script>
+</body>
+</html>
