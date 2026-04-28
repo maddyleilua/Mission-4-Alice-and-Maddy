@@ -332,13 +332,13 @@
 
           IssueType.parentNode.replaceChild(inputIssueType, IssueType); // swap <p> → <input>
 
-          inputDescription = document.createElement("input");
-          inputDescription.type = "text";
+          inputDescription = document.createElement("textarea");
+          inputDescription.className = "form-control";
           inputDescription.value = Description.innerText;
           Description.parentNode.replaceChild(inputDescription, Description);
 
-          inputIssueLocation = document.createElement("input");
-          inputIssueLocation.type = "text";
+          inputIssueLocation = document.createElement("textarea");
+          inputIssueLocation.className = "form-control";
           inputIssueLocation.value = IssueLocation.innerText;
           IssueLocation.parentNode.replaceChild(
             inputIssueLocation,
