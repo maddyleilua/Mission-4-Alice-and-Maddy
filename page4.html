@@ -4,25 +4,61 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Illegal Rubbish Dumping</title>
+    <link rel="stylesheet" href="common.css" />
     <link rel="stylesheet" href="page4.css" />
   </head>
   <body>
     <div class="card">
       <nav>
-        <div class="menu-icon"><span></span><span></span><span></span></div>
+        <div class="menu-icon" onclick="toggleMenu()">
+          <span></span><span></span><span></span>
+        </div>
+
+        <!-- 菜单容器 -->
+        <div id="menu-dropdown" class="menu-dropdown">
+          <a href="home.html">Home</a>
+          <a href="#features">Features</a>
+          <a href="Maddy code/trackReport.html">Check Status</a>
+          <a href="#about">About Us</a>
+        </div>
+
         <div class="nav-right">
-          <div class="avatar">AZ</div>
-          <svg
-            width="22"
-            height="22"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="#3a5bc7"
-            stroke-width="2.2"
+          <button
+            type="button"
+            class="avatar"
+            onclick="openSwitchModal()"
+            title="Switch account"
+            aria-label="Switch account"
           >
-            <circle cx="11" cy="11" r="7" />
-            <line x1="16.5" y1="16.5" x2="22" y2="22" />
-          </svg>
+            AZ
+          </button>
+          <button
+            type="button"
+            class="search-icon-btn"
+            onclick="toggleSearchBox(event)"
+            aria-label="Toggle search"
+          >
+            <svg
+              width="22"
+              height="22"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="#3a5bc7"
+              stroke-width="2.2"
+            >
+              <circle cx="11" cy="11" r="7" />
+              <line x1="16.5" y1="16.5" x2="22" y2="22" />
+            </svg>
+          </button>
+        </div>
+        <div id="nav-search-popup" class="nav-search-popup">
+          <input
+            id="nav-search-input"
+            type="text"
+            placeholder="Search..."
+            aria-label="Search"
+            onkeydown="handleSearchKey(event)"
+          />
         </div>
       </nav>
 
@@ -33,13 +69,52 @@
         </p>
 
         <label for="location">Where is the issue located?*</label>
-        <input type="text" id="location" placeholder="Address,street,suburb" />
+        <!-- accessibility -->
+        <input
+          type="text"
+          id="location"
+          placeholder="Address,street,suburb"
+          aria-required="true"
+          aria-invalid="false"
+          aria-describedby="location-error"
+        />
+        <p id="location-error" class="inline-error" role="alert" aria-hidden="true">
+          Location is required.
+        </p>
+
+        <label>Select location on map:</label>
+        <iframe
+          id="map"
+          src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d9343.80396806113!2d174.77039956534725!3d-36.848335930718676!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2snz!4v1767826261837!5m2!1sen!2snz"
+          width="100%"
+          height="300"
+          title="Map showing issue location area"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+
+        <p id="map-info" style="font-size: 12px; color: #666; margin-top: 8px">
+          Auckland area map - Enter address manually below
+        </p>
 
         <label for="description">Please describe the issue*</label>
         <textarea
           id="description"
           placeholder="Please  provide details such as size or nearby landmarks."
+          aria-required="true"
+          aria-invalid="false"
+          aria-describedby="description-error"
         ></textarea>
+        <p
+          id="description-error"
+          class="inline-error"
+          role="alert"
+          aria-hidden="true"
+        >
+          Description is required.
+        </p>
 
         <label class="upload-label">Please upload photo*</label>
         <p class="upload-hint">
@@ -48,8 +123,10 @@
         </p>
 
         <button
+          type="button"
           class="btn-add"
           onclick="document.getElementById('photo-input').click()"
+          aria-controls="photo-input"
         >
           Add photo
         </button>
@@ -59,6 +136,7 @@
           accept="image/*"
           style="display: none"
           onchange="handlePhoto(this)"
+          aria-label="Upload a photo of the issue"
         />
         <p class="photo-name" id="photo-name"></p>
 
@@ -85,7 +163,49 @@
       </footer>
     </div>
 
+    <div
+      id="switch-modal"
+      class="switch-modal-overlay"
+      onclick="closeSwitchByBackdrop(event)"
+    >
+      <div class="switch-modal">
+        <h3>Switch account</h3>
+        <p>Are you sure you want to switch account?</p>
+        <div class="switch-actions">
+          <button
+            type="button"
+            class="switch-btn switch-cancel"
+            onclick="closeSwitchModal()"
+          >
+            Cancel
+          </button>
+          <button
+            type="button"
+            class="switch-btn switch-confirm"
+            onclick="confirmSwitchAccount()"
+          >
+            Switch
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="toast" class="toast-message" aria-live="polite"></div>
+
+    <script src="common.js"></script>
     <script>
+      // 从 localStorage 读取 issue 类型并更新 title
+      function initializeIssuePage() {
+        const issueType =
+          localStorage.getItem("selectedIssueType") ||
+          "Illegal rubbish dumping";
+        document.title = issueType;
+        document.querySelector("h1").textContent = issueType; //refresh h1 title
+      }
+
+      // 直接调用，不用事件监听
+      initializeIssuePage();
+
       function handlePhoto(input) {
         if (input.files && input.files[0]) {
           document.getElementById("photo-name").textContent =
@@ -93,23 +213,170 @@
         }
       }
 
-      function handleSubmit() {
+      async function handleSubmit() {
         const location = document.getElementById("location").value.trim();
         const description = document.getElementById("description").value.trim();
         const photo = document.getElementById("photo-input").files[0];
+        const locationError = document.getElementById("location-error");
+        const descriptionError = document.getElementById("description-error");
+        const locationInput = document.getElementById("location");
+        const descriptionInput = document.getElementById("description");
 
-        if (!location || !description) {
-          alert("Please fill in all required fields.");
+        locationError.style.display = "none";
+        descriptionError.style.display = "none";
+        locationError.setAttribute("aria-hidden", "true");
+        descriptionError.setAttribute("aria-hidden", "true");
+        locationInput.classList.remove("field-invalid");
+        descriptionInput.classList.remove("field-invalid");
+        locationInput.setAttribute("aria-invalid", "false");
+        descriptionInput.setAttribute("aria-invalid", "false");
+
+        let isValid = true;
+
+        if (!location) {
+          locationError.style.display = "block";
+          locationError.setAttribute("aria-hidden", "false");
+          locationInput.classList.add("field-invalid");
+          locationInput.setAttribute("aria-invalid", "true");
+          isValid = false;
+        }
+
+        if (!description) {
+          descriptionError.style.display = "block";
+          descriptionError.setAttribute("aria-hidden", "false");
+          descriptionInput.classList.add("field-invalid");
+          descriptionInput.setAttribute("aria-invalid", "true");
+          isValid = false;
+        }
+
+        if (!isValid) {
+          if (locationInput.getAttribute("aria-invalid") === "true") {
+            locationInput.focus();
+          } else if (descriptionInput.getAttribute("aria-invalid") === "true") {
+            descriptionInput.focus();
+          }
           return;
         }
 
         if (!photo) {
+          localStorage.setItem("lastSubmissionComplete", "false");
+          localStorage.removeItem("lastReportId");
+          localStorage.removeItem("lastReportStatus");
+          localStorage.removeItem("lastReportLocation");
           window.location.href = "page5.html";
           return;
         }
 
-        alert("Submitted successfully!");
+        try {
+          const res = await fetch(
+            "https://jsonplaceholder.typicode.com/posts",
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                issueType: "Illegal rubbish dumping",
+                location,
+                description,
+                photoName: photo.name,
+                createdAt: new Date().toISOString(),
+              }),
+            },
+          );
+
+          if (!res.ok) {
+            throw new Error("Submit failed");
+          }
+
+          const data = await res.json();
+          localStorage.setItem("lastReportId", String(data.id));
+          localStorage.setItem("lastReportStatus", "Submitted");
+          localStorage.setItem("lastReportLocation", location);
+          localStorage.setItem(
+            "lastReportSubmittedAt",
+            new Date().toLocaleDateString("en-NZ"),
+          );
+          localStorage.setItem("lastSubmissionComplete", "true");
+          window.location.href = "Maddy code/reviewReport.html";
+        } catch (error) {
+          showToast("Network error. Please try again.");
+        }
       }
+
+      function showToast(message) {
+        const toast = document.getElementById("toast");
+        toast.textContent = message;
+        toast.classList.add("show");
+        clearTimeout(showToast._timer);
+        showToast._timer = setTimeout(() => {
+          toast.classList.remove("show");
+        }, 2400);
+      }
+
+      function openSwitchModal() {
+        document.getElementById("switch-modal").classList.add("show");
+      }
+
+      function closeSwitchModal() {
+        document.getElementById("switch-modal").classList.remove("show");
+      }
+
+      function closeSwitchByBackdrop(event) {
+        if (event.target.id === "switch-modal") {
+          closeSwitchModal();
+        }
+      }
+
+      function confirmSwitchAccount() {
+        Common.clearSignIn();
+        window.location.href = "page1.html";
+      }
+
+      function toggleSearchBox(event) {
+        event.stopPropagation();
+        const wrapper = document.getElementById("nav-search-popup");
+        const input = document.getElementById("nav-search-input");
+
+        if (!wrapper.classList.contains("open")) {
+          wrapper.classList.add("open");
+          input.focus();
+          return;
+        }
+
+        goFromSearch();
+      }
+
+      function handleSearchKey(event) {
+        if (event.key === "Enter") {
+          goFromSearch();
+        }
+      }
+
+      function goFromSearch() {
+        const wrapper = document.getElementById("nav-search-popup");
+        const input = document.getElementById("nav-search-input");
+        const query = input.value.trim().toLowerCase();
+
+        if (!query) return;
+
+        const match = Common.findRoute(query, "issue");
+
+        if (!match) {
+          showToast("No matching page found.");
+          return;
+        }
+
+        wrapper.classList.remove("open");
+        window.location.href = match.path;
+      }
+
+      document.addEventListener("click", function (event) {
+        const wrapper = document.getElementById("nav-search-popup");
+        const button = document.querySelector(".search-icon-btn");
+
+        if (!wrapper.contains(event.target) && !button.contains(event.target)) {
+          wrapper.classList.remove("open");
+        }
+      });
     </script>
   </body>
 </html>

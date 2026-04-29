@@ -9,7 +9,18 @@
   <body>
     <div class="card">
       <nav>
-        <div class="menu-icon"><span></span><span></span><span></span></div>
+        <div class="menu-icon" onclick="toggleMenu()" style="cursor: pointer">
+          <span></span><span></span><span></span>
+        </div>
+
+        <!-- burger -->
+        <div id="menu-dropdown" class="menu-dropdown">
+          <a href="home.html">Home</a>
+          <a href="#features">Features</a>
+          <a href="Maddy code/trackReport.html">Check Status</a>
+          <a href="#about">About Us</a>
+        </div>
+
         <div class="search">
           <input type="text" placeholder="Search..." />
           <svg
@@ -128,12 +139,76 @@
           </p>
 
           <button class="btn-signin" onclick="handleSignIn()">SIGN IN</button>
-          <a href="#" class="forgot">Forgot password?</a>
+          <a href="#" class="forgot" onclick="openForgotPassword(event)"
+            >Forgot password?</a
+          >
+        </div>
+      </div>
+
+      <div
+        id="forgot-overlay"
+        class="forgot-overlay"
+        onclick="closeForgotByBackdrop(event)"
+      >
+        <div class="forgot-modal">
+          <h3>Reset Password</h3>
+          <label for="new-password"
+            >New Password <span class="required">*</span></label
+          >
+          <input
+            type="password"
+            id="new-password"
+            placeholder="At least 8 characters"
+          />
+
+          <label for="confirm-password"
+            >Confirm Password <span class="required">*</span></label
+          >
+          <input
+            type="password"
+            id="confirm-password"
+            placeholder="Enter password again"
+          />
+
+          <p id="forgot-error" class="forgot-error"></p>
+
+          <div class="forgot-actions">
+            <button
+              type="button"
+              class="btn-forgot-cancel"
+              onclick="closeForgotPassword()"
+            >
+              Cancel
+            </button>
+            <button
+              type="button"
+              class="btn-forgot-save"
+              onclick="submitForgotPassword()"
+            >
+              Save
+            </button>
+          </div>
         </div>
       </div>
     </div>
 
     <script>
+      // 菜单控制函数
+      function toggleMenu() {
+        const menu = document.getElementById("menu-dropdown");
+        menu.classList.toggle("show");
+      }
+
+      // 点击页面其他地方关闭菜单
+      document.addEventListener("click", function (event) {
+        const menu = document.getElementById("menu-dropdown");
+        const menuIcon = document.querySelector(".menu-icon");
+
+        if (!menu.contains(event.target) && !menuIcon.contains(event.target)) {
+          menu.classList.remove("show");
+        }
+      });
+
       function togglePassword() {
         const input = document.getElementById("password");
         const icon = document.getElementById("eye-icon");
@@ -175,8 +250,64 @@
         }
 
         if (valid) {
+          localStorage.setItem("isSignedIn", "true");
           window.location.href = "page3.html";
         }
+      }
+
+      function openForgotPassword(event) {
+        event.preventDefault();
+        document.getElementById("forgot-overlay").classList.add("show");
+        clearForgotError();
+      }
+
+      function closeForgotPassword() {
+        document.getElementById("forgot-overlay").classList.remove("show");
+        document.getElementById("new-password").value = "";
+        document.getElementById("confirm-password").value = "";
+        clearForgotError();
+      }
+
+      function closeForgotByBackdrop(event) {
+        if (event.target.id === "forgot-overlay") {
+          closeForgotPassword();
+        }
+      }
+
+      function clearForgotError() {
+        const error = document.getElementById("forgot-error");
+        error.style.display = "none";
+        error.textContent = "";
+      }
+
+      function showForgotError(message) {
+        const error = document.getElementById("forgot-error");
+        error.textContent = message;
+        error.style.display = "block";
+      }
+
+      function submitForgotPassword() {
+        const newPassword = document.getElementById("new-password").value;
+        const confirmPassword =
+          document.getElementById("confirm-password").value;
+        const hasLength = newPassword.length >= 8;
+        const hasUpper = /[A-Z]/.test(newPassword);
+
+        if (!hasLength || !hasUpper) {
+          showForgotError(
+            "Password must be at least 8 characters and include one uppercase letter.",
+          );
+          return;
+        }
+
+        if (newPassword !== confirmPassword) {
+          showForgotError("Passwords do not match.");
+          return;
+        }
+
+        document.getElementById("password").value = newPassword;
+        closeForgotPassword();
+        alert("Password reset successful. Please sign in.");
       }
     </script>
   </body>

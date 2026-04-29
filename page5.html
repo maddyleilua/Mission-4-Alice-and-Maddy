@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Missing Photo</title>
+    <link rel="stylesheet" href="common.css" />
     <link rel="stylesheet" href="page5.css" />
   </head>
   <body>
@@ -11,7 +12,16 @@
       <!-- Blurred background (page4 content) -->
       <div class="bg-content">
         <nav>
-          <div class="menu-icon"><span></span><span></span><span></span></div>
+          <div class="menu-icon" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+          
+          <!-- 菜单容器 -->
+          <div id="menu-dropdown" class="menu-dropdown">
+            <a href="home.html">Home</a>
+            <a href="#features">Features</a>
+            <a href="Maddy code/trackReport.html">Check Status</a>
+            <a href="#about">About Us</a>
+          </div>
+          
           <div class="nav-right">
             <div class="avatar">AZ</div>
             <svg
@@ -80,6 +90,7 @@
           <p class="missing-msg">
             Please upload photo so we can better understand the issue
           </p>
+          <div id="submission-preview" class="submission-preview"></div>
 
           <input
             type="file"
@@ -101,7 +112,28 @@
       </div>
     </div>
 
+    <script src="common.js"></script>
     <script>
+      (function renderSubmissionPreview() {
+        const isComplete = localStorage.getItem("lastSubmissionComplete") === "true";
+        const reportId = localStorage.getItem("lastReportId");
+        const status = localStorage.getItem("lastReportStatus");
+        const location = localStorage.getItem("lastReportLocation");
+        const box = document.getElementById("submission-preview");
+
+        if (!isComplete || !reportId) {
+          box.style.display = "none";
+          return;
+        }
+
+        box.innerHTML = `
+          <p><strong>Latest submission</strong></p>
+          <p>Report ID: ${reportId}</p>
+          <p>Status: ${status || "Submitted"}</p>
+          <p>Location: ${location || "-"}</p>
+        `;
+      })();
+
       function handleUpload(input) {
         if (input.files && input.files[0]) {
           alert("Photo uploaded: " + input.files[0].name + "\nSubmitting...");

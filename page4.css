@@ -7,19 +7,16 @@
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background: #dde3f0;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  padding: 2rem 1rem;
+  min-height: 100dvh;
+  margin: 0;
 }
 
 .card {
   width: 100%;
-  max-width: 380px;
+  min-height: 100dvh;
   background: #f0f3fb;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 8px 32px rgba(58, 91, 199, 0.15);
+  display: flex;
+  flex-direction: column;
 }
 
 /* ── Navbar ── */
@@ -28,6 +25,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 }
 
 .menu-icon {
@@ -53,6 +51,7 @@ nav {
 .avatar {
   width: 36px;
   height: 36px;
+  border: none;
   border-radius: 50%;
   background: #3a5bc7;
   color: #fff;
@@ -61,6 +60,11 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+}
+
+.search-icon-btn {
+  margin-left: 0;
 }
 
 /* ── Main ── */
@@ -68,6 +72,7 @@ main {
   padding: 24px 20px 32px;
   display: flex;
   flex-direction: column;
+  flex: 1;
 }
 
 h1 {
@@ -117,6 +122,18 @@ input[type="text"]::placeholder {
 }
 input[type="text"]:focus {
   box-shadow: 0 0 0 2px #3a5bc7;
+}
+
+.inline-error {
+  display: none;
+  color: #d94040;
+  font-size: 12px;
+  margin-top: -12px;
+  margin-bottom: 12px;
+}
+
+.field-invalid {
+  box-shadow: 0 0 0 2px #d94040 !important;
 }
 
 textarea {
@@ -223,4 +240,25 @@ footer p {
 }
 .contact:hover {
   background: rgba(255, 255, 255, 0.15);
+}
+
+.toast-message {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%) translateY(14px);
+  background: rgba(26, 42, 108, 0.96);
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 1200;
+}
+
+.toast-message.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }

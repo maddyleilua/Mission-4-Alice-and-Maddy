@@ -123,11 +123,18 @@
             <h1 class="text-primary">Report History</h1>
             <p class="text-secondary">You have submitted 1 report.</p>
             <article class="myReport">
-
+              <p
+                id="api-submit-success"
+                class="d-none mb-3"
+                style="color: #0a9130"
+              >
+                <strong>Submission received successfully</strong>
+              </p>
               <h2 class="text-primary">Illegal Rubbish Dumping</h2>
-                            <p><strong>Report ID:</strong> Z12345</p>
-              <p><strong>Location:</strong> 123 Pah Rd, Epsom, Auckland 1234</p>
-              <p><strong>Date Submitted:</strong> 2023-10-01</p>
+              <p><strong>Report ID:</strong> <span id="api-report-id">Z12345</span></p>
+              <p><strong>Status:</strong> <span id="api-report-status">Pending Review</span></p>
+              <p><strong>Location:</strong> <span id="api-report-location">123 Pah Rd, Epsom, Auckland 1234</span></p>
+              <p><strong>Date Submitted:</strong> <span id="api-report-date">2023-10-01</span></p>
               <button class="btn btn-primary view-btn" onclick="window.location.href = 'myReportHistory.html'">
               View Report Details
             </button>
@@ -204,6 +211,26 @@
         <!-- !JAVASCRIPT -->
          <script>
 
+
+function renderLatestApiSubmission() {
+  const complete = localStorage.getItem("lastSubmissionComplete") === "true";
+  if (!complete) return;
+
+  const id = localStorage.getItem("lastReportId");
+  const status = localStorage.getItem("lastReportStatus") || "Submitted";
+  const location = localStorage.getItem("lastReportLocation") || "-";
+  const date = localStorage.getItem("lastReportSubmittedAt") || "-";
+
+  if (!id) return;
+
+  document.getElementById("api-submit-success").classList.remove("d-none");
+  document.getElementById("api-report-id").textContent = id;
+  document.getElementById("api-report-status").textContent = status;
+  document.getElementById("api-report-location").textContent = location;
+  document.getElementById("api-report-date").textContent = date;
+}
+
+renderLatestApiSubmission();
 
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */

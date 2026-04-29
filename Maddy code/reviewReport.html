@@ -256,21 +256,39 @@
       const findMeButton = document.getElementById("Show-location");
       const locationText = document.getElementById("location");
       const map = document.getElementById("map");
+
       findMeButton.addEventListener("click", () => {
+        if (!navigator.geolocation) {
+          locationText.innerHTML =
+            "<span style='color: red;'>Geolocation is not supported by your browser</span>";
+          return;
+        }
+
         locationText.innerHTML =
-          "Finding your location...<br><div class='spinner-border'></div>";
+          "<span style='color: #666;'>Finding your location...</span>";
+
         navigator.geolocation.getCurrentPosition(
           (position) => {
             const lat = position.coords.latitude;
             const lon = position.coords.longitude;
-            const locationString = `https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d9343.80396806113!2d${lon}!3d${lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2snz!4v1767826261837!5m2!1sen!2snz`;
 
-            locationText.textContent = `Latitude: ${lat}, Longitude: ${lon}`;
-            map.src = locationString;
+            // refrensh location
+            locationText.innerHTML = `<strong>Current Location:</strong><br>Latitude: ${lat.toFixed(6)}<br>Longitude: ${lon.toFixed(6)}`;
+
+            // refresh map
+            const newMapUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3000!2d${lon}!3d${lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0:0x0!2z${lat},${lon}!5e0!3m2!1sen!2snz!4v1700000000000`;
+            map.src = newMapUrl;
           },
-          // error
-          () => {
-            locationText.textContent = "Unable to get your location";
+          (error) => {
+            let errorMsg = "Unable to get your location";
+            switch (error.code) {
+              case error.PERMISSION_DENIED:
+                errorMsg =
+                  "Permission denied. Please enable location access in your browser settings.";
+                break;
+              
+            }
+            locationText.innerHTML = `<span style='color: red;'>${errorMsg}</span>`;
           },
         );
       });

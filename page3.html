@@ -4,25 +4,61 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Select Issue Type</title>
+    <link rel="stylesheet" href="common.css" />
     <link rel="stylesheet" href="page3.css" />
   </head>
   <body>
     <div class="card">
       <nav>
-        <div class="menu-icon"><span></span><span></span><span></span></div>
+        <div class="menu-icon" onclick="toggleMenu()">
+          <span></span><span></span><span></span>
+        </div>
+        
+        <!-- 菜单容器 -->
+        <div id="menu-dropdown" class="menu-dropdown">
+          <a href="home.html">Home</a>
+          <a href="#features">Features</a>
+          <a href="Maddy code/trackReport.html">Check Status</a>
+          <a href="#about">About Us</a>
+        </div>
+        
         <div class="nav-right">
-          <div class="avatar">AZ</div>
-          <svg
-            width="22"
-            height="22"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="#3a5bc7"
-            stroke-width="2.2"
+          <button
+            type="button"
+            class="avatar"
+            onclick="openSwitchModal()"
+            title="Switch account"
+            aria-label="Switch account"
           >
-            <circle cx="11" cy="11" r="7" />
-            <line x1="16.5" y1="16.5" x2="22" y2="22" />
-          </svg>
+            AZ
+          </button>
+          <button
+            type="button"
+            class="search-icon-btn"
+            onclick="toggleSearchBox(event)"
+            aria-label="Toggle search"
+          >
+            <svg
+              width="22"
+              height="22"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="#3a5bc7"
+              stroke-width="2.2"
+            >
+              <circle cx="11" cy="11" r="7" />
+              <line x1="16.5" y1="16.5" x2="22" y2="22" />
+            </svg>
+          </button>
+        </div>
+        <div id="nav-search-popup" class="nav-search-popup">
+          <input
+            id="nav-search-input"
+            type="text"
+            placeholder="Search..."
+            aria-label="Search"
+            onkeydown="handleSearchKey(event)"
+          />
         </div>
       </nav>
 
@@ -55,8 +91,8 @@
             Other issues
           </button>
         </div>
-
-        <button class="btn-continue" onclick="location.href = 'page4.html'">
+<!-- every page's title will be changed -->
+        <button class="btn-continue" onclick="goToPage4()">
           Continue
         </button>
       </main>
@@ -81,6 +117,26 @@
       </footer>
     </div>
 
+    <div
+      id="switch-modal"
+      class="switch-modal-overlay"
+      onclick="closeSwitchByBackdrop(event)"
+    >
+      <div class="switch-modal">
+        <h3>Switch account</h3>
+        <p>You can switch account on this page.</p>
+        <div class="switch-actions">
+          <button type="button" class="switch-btn switch-cancel" onclick="closeSwitchModal()">
+            Cancel
+          </button>
+          <button type="button" class="switch-btn switch-confirm" onclick="confirmSwitchAccount()">
+            Switch
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="common.js"></script>
     <script>
       function selectIssue(btn) {
         document
@@ -88,6 +144,81 @@
           .forEach((b) => b.classList.remove("selected"));
         btn.classList.add("selected");
       }
+// local Storage and go to page 4
+      function goToPage4() {
+        const selectedBtn = document.querySelector(".issue-btn.selected");
+        if (selectedBtn) {
+          const issueType = selectedBtn.textContent.trim();
+          localStorage.setItem("selectedIssueType", issueType);
+        }
+        location.href = "page4.html";
+      }
+
+      function openSwitchModal() {
+        document.getElementById("switch-modal").classList.add("show");
+      }
+
+      function closeSwitchModal() {
+        document.getElementById("switch-modal").classList.remove("show");
+      }
+
+      function closeSwitchByBackdrop(event) {
+        if (event.target.id === "switch-modal") {
+          closeSwitchModal();
+        }
+      }
+
+      function confirmSwitchAccount() {
+        Common.clearSignIn();
+        window.location.href = "page1.html";
+      }
+
+      function toggleSearchBox(event) {
+        event.stopPropagation();
+        const wrapper = document.getElementById("nav-search-popup");
+        const input = document.getElementById("nav-search-input");
+
+        if (!wrapper.classList.contains("open")) {
+          wrapper.classList.add("open");
+          input.focus();
+          return;
+        }
+
+        goFromSearch();
+      }
+
+      function handleSearchKey(event) {
+        if (event.key === "Enter") {
+          goFromSearch();
+        }
+      }
+
+      function goFromSearch() {
+        const wrapper = document.getElementById("nav-search-popup");
+        const input = document.getElementById("nav-search-input");
+        const query = input.value.trim().toLowerCase();
+
+        if (!query) return;
+
+        const match = Common.findRoute(query, "issue");
+
+        if (!match) {
+          alert("No matching page found.");
+          return;
+        }
+
+        wrapper.classList.remove("open");
+        window.location.href = match.path;
+      }
+
+      document.addEventListener("click", function (event) {
+        const wrapper = document.getElementById("nav-search-popup");
+        const button = document.querySelector(".search-icon-btn");
+
+        if (!wrapper.contains(event.target) && !button.contains(event.target)) {
+          wrapper.classList.remove("open");
+        }
+      });
     </script>
   </body>
 </html>

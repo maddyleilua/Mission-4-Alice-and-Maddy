@@ -4,12 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Report An Issue</title>
+    <link rel="stylesheet" href="common.css" />
     <link rel="stylesheet" href="login.css" />
   </head>
   <body>
     <div class="card">
       <nav>
-        <div class="menu-icon"><span></span><span></span><span></span></div>
+        <div class="menu-icon" onclick="toggleMenu()">
+          <span></span><span></span><span></span>
+        </div>
+
+        <!-- 菜单容器 -->
+        <div id="menu-dropdown" class="menu-dropdown">
+          <a href="home.html">Home</a>
+          <a href="#features">Features</a>
+          <a href="Maddy code/trackReport.html">Check Status</a>
+          <a href="#about">About Us</a>
+        </div>
+
         <div class="search">
           <input type="text" placeholder="Search..." />
           <svg
@@ -52,7 +64,7 @@
 
         <label class="remember"> <input type="checkbox" /> Remember me </label>
 
-        <button class="btn btn-next">Next</button>
+        <button class="btn btn-next" onclick="goToPage3()">Next</button>
 
         <div class="signup">
           <p>Don't have an account ?</p>
@@ -93,5 +105,28 @@
         </a>
       </footer>
     </div>
+    <script src="common.js"></script>
+    <script>
+      function goToPage3() {
+        const emailInput = document.getElementById("email");
+        const emailValue = emailInput.value.trim();
+
+        // 检查邮箱是否已填写且有效
+        if (!emailValue) {
+          alert("Please enter your email address");
+          return;
+        }
+
+        // 简单的邮箱格式验证
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(emailValue)) {
+          alert("Please enter a valid email address");
+          return;
+        }
+
+        // 邮箱验证通过，导航到page3
+        location.href = "page3.html";
+      }
+    </script>
   </body>
 </html>
