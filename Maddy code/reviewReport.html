@@ -34,7 +34,7 @@
           <div class="collapse navbar-collapse" id="mainNavbar">
             <ul class="navbar-nav ms-auto d-flex">
               <li class="nav-item active">
-                <a class="nav-link text-primary" href="#">Home</a>
+                <a class="nav-link text-primary" href="/Mission-4-Alice-and-Maddy/home.html">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link text-primary" href="#">Features</a>
@@ -272,8 +272,9 @@
       </div>
     </footer>
 
-    <!-- !JAVASCRIPT FOR LOCATION -->
+    <!-- !JAVASCRIPT -->
     <script>
+      // Get current location and display on map
       const findMeButton = document.getElementById("Show-location");
       const locationText = document.getElementById("location");
       const map = document.getElementById("map");
@@ -311,7 +312,6 @@
           // Switch to edit mode
           inputIssueType = document.createElement("select");
           inputIssueType.className = "form-select";
-
           const options = [
             "Illegal Rubbish Dumping",
             "Broken Streetlight",
@@ -330,12 +330,12 @@
             inputIssueType.appendChild(opt);
           });
 
-          IssueType.parentNode.replaceChild(inputIssueType, IssueType); // swap <p> → <input>
+          IssueType.parentNode.replaceChild(inputIssueType, IssueType); // swap <p> → <select>
 
           inputDescription = document.createElement("textarea");
           inputDescription.className = "form-control";
           inputDescription.value = Description.innerText;
-          Description.parentNode.replaceChild(inputDescription, Description);
+          Description.parentNode.replaceChild(inputDescription, Description); // swap <p> → <textarea>
 
           inputIssueLocation = document.createElement("textarea");
           inputIssueLocation.className = "form-control";
@@ -343,7 +343,7 @@
           IssueLocation.parentNode.replaceChild(
             inputIssueLocation,
             IssueLocation,
-          );
+          ); // swap <p> → <textarea>
 
           btn.textContent = "Save";
           inputIssueType.focus();
@@ -353,11 +353,11 @@
         } else {
           // Switch back to display mode
           IssueType.innerText = inputIssueType.value;
-          inputIssueType.parentNode.replaceChild(IssueType, inputIssueType); // swap <input> → <p>
+          inputIssueType.parentNode.replaceChild(IssueType, inputIssueType); // swap <select> → <p>
           Description.innerText = inputDescription.value;
-          inputDescription.parentNode.replaceChild(Description, inputDescription);
+          inputDescription.parentNode.replaceChild(Description, inputDescription); // swap <textarea> → <p>
           IssueLocation.innerText = inputIssueLocation.value;
-          inputIssueLocation.parentNode.replaceChild(IssueLocation, inputIssueLocation);
+          inputIssueLocation.parentNode.replaceChild(IssueLocation, inputIssueLocation); // swap <textarea> → <p>
 
           btn.textContent = "Edit";
           editing = false;
