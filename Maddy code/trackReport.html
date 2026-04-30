@@ -17,12 +17,17 @@
   </head>
   <body>
     <!-- Skip link for accessibility -->
-    <a href="#main-content" aria-label="Skip to main content" class="skip-link">Skip to main content</a>
-<!-- Stolen from Aadi -->
+    <a href="#main-content" aria-label="Skip to main content" class="skip-link"
+      >Skip to main content</a
+    >
+    <!-- Stolen from Aadi -->
 
-        <!-- !Header -->
+    <!-- !Header -->
     <header class="header">
-      <nav class="navbar navbar-expand-md fixed-top" aria-label="Main navigation">
+      <nav
+        class="navbar navbar-expand-md fixed-top"
+        aria-label="Main navigation"
+      >
         <div class="container">
           <!-- navbar 🍔 menu button -->
           <button
@@ -33,7 +38,7 @@
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-          <!-- Added aria-label because hamburger button has no visible text -->
+            <!-- Added aria-label because hamburger button has no visible text -->
             <span class="navbar-toggler-icon"></span>
           </button>
 
@@ -41,13 +46,23 @@
           <div class="collapse navbar-collapse" id="mainNavbar">
             <ul class="navbar-nav ms-auto d-flex">
               <li class="nav-item active">
-                <a class="nav-link text-primary" href="/Mission-4-Alice-and-Maddy/home.html">Home</a>
+                <a
+                  class="nav-link text-primary"
+                  href="/Mission-4-Alice-and-Maddy/home.html"
+                  >Home</a
+                >
               </li>
               <li class="nav-item">
-                <a class="nav-link text-primary" href="/Mission-4-Alice-and-Maddy/login.html">Login</a>
+                <a
+                  class="nav-link text-primary"
+                  href="/Mission-4-Alice-and-Maddy/login.html"
+                  >Login</a
+                >
               </li>
               <li class="nav-item">
-                <a class="nav-link text-primary" href="NeedHelp.html">Need Help?</a>
+                <a class="nav-link text-primary" href="NeedHelp.html"
+                  >Need Help?</a
+                >
               </li>
             </ul>
           </div>
@@ -55,55 +70,70 @@
           <!-- div class keeps icons to the right side -->
           <div class="d-flex justify-content-end">
             <!-- A-Z button -->
-            <button class="btn btn-outline-primary btn-sm" aria-label="View reports A to Z" onclick="window.location.href = 'reportDatabase.html'">A - Z</button>
+            <button
+              class="btn btn-outline-primary btn-sm"
+              aria-label="View reports A to Z"
+              onclick="window.location.href = 'reportDatabase.html'"
+            >
+              A - Z
+            </button>
 
             <!-- Search Icon -->
-            <i class="bi bi-search text-primary fs-1 p-1" role="img" aria-label="Search"></i>
+            <i
+              class="bi bi-search text-primary fs-1 p-1"
+              role="img"
+              aria-label="Search"
+            ></i>
           </div>
         </div>
       </nav>
     </header>
 
-  <!-- !Track Report -->
-   <main id="main-content">
-    <section>
-      <div
-        class="container d-flex justify-content-center align-items-center min-vh-100"
-      >
-        <div class="card shadow p-4 w-100" style="max-width: 500px">
-          <h1 class="text-primary">Track Your Report</h1>
-          <p>Enter your Reference ID to track its status.</p>
-          <!-- !Tracking Form -->
-          <form action="">
-            <div class="mb-3">
-              <label for="reportId" class="form-label"><strong>Reference ID</strong></label>
-              <input
-                type="text"
-                class="form-control"
-                style="color: #1a2a6c"
-                id="reportId"
-                placeholder="Enter your report ID"
-                required
-              />
-              <p class="hint text-secondary">E.g. Z123456</p>
-              <p class="hint text-secondary" id="errorMsg"> Please enter a valid ID (1 letter followed by 6 numbers)</p>
-              <!-- Added a error message -->
-            </div>
-            
+    <!-- !Track Report -->
+    <main id="main-content">
+      <section>
+        <div
+          class="container d-flex justify-content-center align-items-center min-vh-100"
+        >
+          <div class="card shadow p-4 w-100" style="max-width: 500px">
+            <h1 class="text-primary">Track Your Report</h1>
+            <p>Enter your Reference ID to track its status.</p>
+            <!-- !Tracking Form -->
+            <form action="">
+              <div class="mb-3">
+                <label for="reportId" class="form-label"
+                  ><strong>Reference ID</strong></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  style="color: #1a2a6c"
+                  id="reportId"
+                  placeholder="Enter your report ID"
+                  required
+                />
+                <p class="hint text-secondary">E.g. Z123456</p>
+                <p class="hint text-secondary" id="errorMsg">
+                  Please enter a valid ID (1 letter followed by 6 numbers)
+                </p>
+                <!-- Added a error message -->
+              </div>
 
-            <!-- button -->
-            <button type="submit" class="btn btn-primary mt-3">Track Report</button>
-            <br>
-            <h6 class="text-center">Don't have your reference ID?</h6>
-            <div class="text-center mt-2">
-            <a href="" class="text-center mt-2">Contact support</a></div>
-            <!-- wrapped <a> contact support in a div to make it centered -->
-          </form>
+              <!-- button -->
+              <button type="submit" class="btn btn-primary mt-3">
+                Track Report
+              </button>
+              <br />
+              <h6 class="text-center">Don't have your reference ID?</h6>
+              <div class="text-center mt-2">
+                <a href="" class="text-center mt-2">Contact support</a>
+              </div>
+              <!-- wrapped <a> contact support in a div to make it centered -->
+            </form>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
     </main>
-
 
     <!-- !FOOTER -->
     <footer class="footer text-white pt-5 pb-2">
@@ -111,15 +141,15 @@
         <div class="column">
           <!-- need help -->
 
-            <h5>Need Help?</h5>
-            <p>Get in touch with us.</p>
-            <!-- Contact us button -->
-            <a
-              href=""
-              class="btn btn-outline-light text-white text-decoration-none"
-            >
-              <i class="bi bi-envelope"></i> Contact us
-            </a>
+          <h5>Need Help?</h5>
+          <p>Get in touch with us.</p>
+          <!-- Contact us button -->
+          <a
+            href="NeedHelp.html"
+            class="btn btn-outline-light text-white text-decoration-none"
+          >
+            <i class="bi bi-envelope"></i> Contact us
+          </a>
         </div>
         <!-- divider -->
         <hr class="mb-3" style="opacity: 0.2" />
@@ -131,39 +161,39 @@
 
   <!-- !JAVASCRIPT FOR ERROR HANDLINGS -->
   <script>
-  const form = document.querySelector('form');
-  const input = document.getElementById('reportId');
-  const errorMsg = document.getElementById('errorMsg');
+    const form = document.querySelector("form");
+    const input = document.getElementById("reportId");
+    const errorMsg = document.getElementById("errorMsg");
 
-  // Regex: exactly 1 letter (A-Z) followed by exactly 6 digits
-  const referencePattern = /^[A-Za-z]\d{6}$/;
+    // Regex: exactly 1 letter (A-Z) followed by exactly 6 digits
+    const referencePattern = /^[A-Za-z]\d{6}$/;
 
-  form.addEventListener('submit', function (e) {
-    e.preventDefault(); // stop page from submitting straight away
+    form.addEventListener("submit", function (e) {
+      e.preventDefault(); // stop page from submitting straight away
 
-    const value = input.value.trim();
+      const value = input.value.trim();
 
-    if (!referencePattern.test(value)) {
-      // Show error, highlight input
-      errorMsg.style.display = 'block';
-      input.classList.add('is-invalid');
-    } else {
-      // Valid — clear error and navigate
-      errorMsg.style.display = 'none';
-      input.classList.remove('is-invalid');
-      window.location.href = 'reportStatus.html';
-    }
-  });
+      if (!referencePattern.test(value)) {
+        // Show error, highlight input
+        errorMsg.style.display = "block";
+        input.classList.add("is-invalid");
+      } else {
+        // Valid — clear error and navigate
+        errorMsg.style.display = "none";
+        input.classList.remove("is-invalid");
+        window.location.href = "reportStatus.html";
+      }
+    });
 
-  // Clear error as user types
-  input.addEventListener('input', function () {
-    if (referencePattern.test(input.value.trim())) {
-      errorMsg.style.display = 'none';
-      input.classList.remove('is-invalid');
-      input.classList.add('is-valid');
-    } else {
-      input.classList.remove('is-valid');
-    }
-  });
-</script>
+    // Clear error as user types
+    input.addEventListener("input", function () {
+      if (referencePattern.test(input.value.trim())) {
+        errorMsg.style.display = "none";
+        input.classList.remove("is-invalid");
+        input.classList.add("is-valid");
+      } else {
+        input.classList.remove("is-valid");
+      }
+    });
+  </script>
 </html>

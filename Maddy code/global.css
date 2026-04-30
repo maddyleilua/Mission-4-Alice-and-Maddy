@@ -7,17 +7,17 @@
 
 /* Skip link for accessibility */
 .skip-link {
-    position: absolute;
-    top: -100%;
-    left: 0;
-    z-index: 9999;
-    padding: 0.5rem 1rem;
-    background: #000;
-    color: #fff;
+  position: absolute;
+  top: -100%;
+  left: 0;
+  z-index: 9999;
+  padding: 0.5rem 1rem;
+  background: #000;
+  color: #fff;
 }
 
 .skip-link:focus {
-    top: 0; /* slides into view when focused */
+  top: 0; /* slides into view when focused */
 }
 
 /* Header Styles */
@@ -56,10 +56,11 @@ section.container {
   display: block;
 }
 
-.location-btn, .view-btn {
+.location-btn,
+.view-btn {
   width: 15rem;
   height: 48px;
-background: #3a5bc7;
+  background: #3a5bc7;
   border-radius: 99px;
   font-size: 16px;
   font-weight: 500;
@@ -100,7 +101,10 @@ background: #3a5bc7;
 }
 
 /* Puts important detailed texts into boxes */
-.reportDetails p, .myReportHistory p, .statusReport p.comment, article.myReport {
+.reportDetails p,
+.myReportHistory p,
+.statusReport p.comment,
+article.myReport {
   background-color: #c8d4ec;
   padding: 20px;
   border-radius: 15px;
@@ -120,7 +124,6 @@ input[type="text"]::placeholder {
 input[type="text"]:focus {
   box-shadow: 0 0 0 2px #3a5bc7;
 }
-
 
 /* text area for report status: questions or comments */
 textarea {
@@ -157,6 +160,12 @@ textarea:focus {
   color: #d94878;
 }
 
+/* Focus Styles for accesibility */
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid #3a5bc7;
+  outline-offset: 2px;
+}
 
 /* adding spacing */
 div.review-report {
