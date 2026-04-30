@@ -80,8 +80,11 @@
 <p class="comment"> No action taken at this moment. We will update you soon. </p>
 
 <label for="questions" class="form-label"><strong>Questions or Comments:</strong></label>
-<textarea class="textarea focus" id="questions" rows="3" placeholder="Enter any questions or comments"></textarea>
-
+<textarea class="textarea focus" id="questions" rows="3" 
+  placeholder="Enter any questions or comments" maxlength="300"></textarea>
+        <div class="char-counter" id="commentCharCount">
+              0 / 300 characters
+            </div>
             <!-- !Button to track report -->
              <button class="btn btn-primary mt-3" onclick="location.href='sentConfirmation.html'">Send</button>
         </div>
@@ -111,4 +114,28 @@
       </div>
     </footer>
 </body>
+
+<script>
+  // Character count feature inspired by Aadi's code
+  const textarea = document.getElementById("questions");
+  const charCount = document.getElementById("commentCharCount");
+
+  if (textarea && charCount) {
+    textarea.addEventListener("input", function () {
+      const currentLength = this.value.length;
+      const maxLength = 300;
+      charCount.textContent = `${currentLength} / ${maxLength} characters`;
+
+      if (currentLength > 250) {
+        charCount.classList.add("warning");
+        charCount.classList.remove("limit");
+      } else if (currentLength === maxLength) {
+        charCount.classList.remove("warning");
+        charCount.classList.add("limit");
+      } else {
+        charCount.classList.remove("warning", "limit");
+      }
+    });
+  }
+</script>
 </html>

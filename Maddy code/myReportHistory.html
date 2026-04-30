@@ -16,9 +16,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-    <!-- !Header -->
+    <!-- Skip link for accessibility -->
+    <a href="#main-content" aria-label="Skip to main content" class="skip-link">Skip to main content</a>
+<!-- Stolen from Aadi -->
+
+        <!-- !Header -->
     <header class="header">
-      <nav class="navbar navbar-expand-md fixed-top">
+      <nav class="navbar navbar-expand-md fixed-top" aria-label="Main navigation">
         <div class="container">
           <!-- navbar 🍔 menu button -->
           <button
@@ -26,7 +30,10 @@
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#mainNavbar"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
           >
+          <!-- Added aria-label because hamburger button has no visible text -->
             <span class="navbar-toggler-icon"></span>
           </button>
 
@@ -34,13 +41,13 @@
           <div class="collapse navbar-collapse" id="mainNavbar">
             <ul class="navbar-nav ms-auto d-flex">
               <li class="nav-item active">
-                <a class="nav-link text-primary" href="#">Home</a>
+                <a class="nav-link text-primary" href="/Mission-4-Alice-and-Maddy/home.html">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-primary" href="#">Features</a>
+                <a class="nav-link text-primary" href="/Mission-4-Alice-and-Maddy/login.html">Login</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-primary" href="#">Contact</a>
+                <a class="nav-link text-primary" href="NeedHelp.html">Need Help?</a>
               </li>
             </ul>
           </div>
@@ -48,17 +55,17 @@
           <!-- div class keeps icons to the right side -->
           <div class="d-flex justify-content-end">
             <!-- A-Z button -->
-            <button class="btn btn-outline-primary btn-sm" onclick="window.location.href = 'reportDatabase.html'">A - Z</button>
+            <button class="btn btn-outline-primary btn-sm" aria-label="View reports A to Z" onclick="window.location.href = 'reportDatabase.html'">A - Z</button>
 
             <!-- Search Icon -->
-            <i class="bi bi-search text-primary fs-1 p-1"></i>
+            <i class="bi bi-search text-primary fs-1 p-1" role="img" aria-label="Search"></i>
           </div>
         </div>
       </nav>
     </header>
 
     <!-- !Report History -->
-    <main class="container d-flex justify-content-center align-items-center min-vh-100">
+    <main id="main-content" class="container d-flex justify-content-center align-items-center min-vh-100">
         <div class="p-4 w-100" style="max-width: 500px">
                     <section class="myReportHistory">
                       <h1 class="text-primary text-center">My Report History</h1>

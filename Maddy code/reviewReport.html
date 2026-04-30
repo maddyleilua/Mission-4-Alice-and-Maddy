@@ -16,9 +16,12 @@
     <link rel="stylesheet" href="global.css" />
   </head>
   <body>
-    <!-- !Header -->
+    <!-- Skip link for accessibility -->
+    <a href="#main-content" aria-label="Skip to main content" class="skip-link">Skip to main content</a>
+
+        <!-- !Header -->
     <header class="header">
-      <nav class="navbar navbar-expand-md fixed-top">
+      <nav class="navbar navbar-expand-md fixed-top" aria-label="Main navigation">
         <div class="container">
           <!-- navbar 🍔 menu button -->
           <button
@@ -26,7 +29,10 @@
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#mainNavbar"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
           >
+          <!-- Added aria-label because hamburger button has no visible text -->
             <span class="navbar-toggler-icon"></span>
           </button>
 
@@ -37,10 +43,10 @@
                 <a class="nav-link text-primary" href="/Mission-4-Alice-and-Maddy/home.html">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-primary" href="#">Features</a>
+                <a class="nav-link text-primary" href="/Mission-4-Alice-and-Maddy/login.html">Login</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-primary" href="#">Contact</a>
+                <a class="nav-link text-primary" href="NeedHelp.html">Need Help?</a>
               </li>
             </ul>
           </div>
@@ -48,20 +54,16 @@
           <!-- div class keeps icons to the right side -->
           <div class="d-flex justify-content-end">
             <!-- A-Z button -->
-            <button
-              class="btn btn-outline-primary btn-sm"
-              onclick="window.location.href = 'reportDatabase.html'"
-            >
-              A - Z
-            </button>
+            <button class="btn btn-outline-primary btn-sm" aria-label="View reports A to Z" onclick="window.location.href = 'reportDatabase.html'">A - Z</button>
 
             <!-- Search Icon -->
-            <i class="bi bi-search text-primary fs-1 p-1"></i>
+            <i class="bi bi-search text-primary fs-1 p-1" role="img" aria-label="Search"></i>
           </div>
         </div>
       </nav>
     </header>
 
+    <main id="main-content">
     <!-- !Review Report -->
     <section
       class="container d-flex justify-content-center align-items-center min-vh-100"
@@ -164,6 +166,7 @@
       </button>
       <br />
     </section>
+    </main>
 
     <!-- !MODAL TO SHOW LOADING -->
     <div
@@ -219,8 +222,9 @@
             <p>We will review your report within 24 hours.</p>
             <p>
               <strong>Reference ID:</strong>
-              <input type="text" value="Z123456" id="myInput" />
+              <input type="text" id="myInput" readonly/>
             </p>
+            <!-- Added a read only, something new I discovered -->
 
             <!-- The button used to copy the text -->
             <button class="btn btn-primary" onclick="copyCode()">
@@ -362,6 +366,20 @@
           editing = false;
         }
       }
+// Randomly generate a unique ID for reference
+function generateReferenceID() {
+  const letter = String.fromCharCode(65 + Math.floor(Math.random() * 26)); // A-Z
+  const numbers = Math.floor(Math.random() * 1000000).toString().padStart(6, '0'); // 000000-999999
+  return letter + numbers;
+}
+
+// Generate once and store it
+const referenceID = generateReferenceID();
+
+// Then update the input field when the success modal opens
+document.getElementById('successModal').addEventListener('shown.bs.modal', () => {
+  document.getElementById('myInput').value = referenceID;
+});
 
       // !JAVASCRIPT FOR COPY TO CLIPBOARD
       function copyCode() {
