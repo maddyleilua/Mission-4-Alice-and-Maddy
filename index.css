@@ -9,6 +9,7 @@ body {
   background: #dde3f0;
   min-height: 100dvh;
   margin: 0;
+  overflow-x: hidden;
 }
 
 /* ── Card ── */
@@ -210,10 +211,43 @@ footer p {
   .btn {
     width: 200px;
   }
+
+  footer {
+    padding: 34px 24px;
+  }
 }
 
 @media (min-width: 1024px) {
   .hero {
     gap: 18px;
+    min-height: 62dvh;
+  }
+
+  nav {
+    padding: 16px 30px;
+  }
+
+  .hero h1 {
+    font-size: clamp(34px, 4vw, 56px);
+  }
+}
+
+@media (max-width: 420px) {
+  nav {
+    padding: 10px 12px;
+    gap: 8px 10px;
+  }
+
+  nav a {
+    font-size: 11px;
+  }
+
+  .hero {
+    padding: 24px 14px 30px;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 240px;
   }
 }

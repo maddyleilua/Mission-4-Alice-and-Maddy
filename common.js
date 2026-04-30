@@ -1,7 +1,7 @@
 window.Common = {
   // unregisted user can only access home and login page, but not issues page,have to login if wants to go issue page
   homeRoutes: [
-    { keys: ["home"], path: "home.html" },
+    { keys: ["home"], path: "index.html" },
     { keys: ["issue", "issues"], path: "page3.html", requireSignIn: true },
     { keys: ["report", "report issue", "report an issue"], path: "login.html" },
     {
@@ -12,7 +12,7 @@ window.Common = {
   ],
   // already signed in users can access all pages
   issueRoutes: [
-    { keys: ["home"], path: "home.html" },
+    { keys: ["home"], path: "index.html" },
     { keys: ["issue", "issues"], path: "page3.html" },
     { keys: ["login", "sign in", "signin"], path: "page1.html" },
     { keys: ["report", "report issue", "report an issue"], path: "page4.html" },

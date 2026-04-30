@@ -4,8 +4,17 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
   padding: 0;
   cursor: pointer;
+}
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 /* ── 无障碍访问样式 ── */
@@ -170,4 +179,19 @@ select:focus {
 .menu-dropdown a:hover {
   background-color: #f0f3fb;
   color: #3a5bc7;
+}
+
+@media (max-width: 420px) {
+  .nav-search-popup {
+    right: 10px;
+  }
+
+  .nav-search-popup input {
+    width: min(82vw, 240px);
+  }
+
+  .menu-dropdown {
+    left: 10px;
+    min-width: 138px;
+  }
 }
