@@ -112,8 +112,14 @@
       </div>
     </div>
 
+    <div id="toast" class="toast-message" aria-live="polite"></div>
+
     <script src="common.js"></script>
     <script>
+      if (!Common.requireAuth("page1.html")) {
+        throw new Error("Auth required");
+      }
+
       (function renderSubmissionPreview() {
         const isComplete = localStorage.getItem("lastSubmissionComplete") === "true";
         const reportId = localStorage.getItem("lastReportId");
@@ -136,9 +142,21 @@
 
       function handleUpload(input) {
         if (input.files && input.files[0]) {
-          alert("Photo uploaded: " + input.files[0].name + "\nSubmitting...");
-          location.href = "page4.html";
+          showToast("Photo uploaded successfully. Returning to report form...");
+          setTimeout(function () {
+            location.href = "page4.html";
+          }, 1300);
         }
+      }
+
+      function showToast(message) {
+        const toast = document.getElementById("toast");
+        toast.textContent = message;
+        toast.classList.add("show");
+        clearTimeout(showToast._timer);
+        showToast._timer = setTimeout(() => {
+          toast.classList.remove("show");
+        }, 2400);
       }
     </script>
   </body>

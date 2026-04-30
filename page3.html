@@ -138,6 +138,10 @@
 
     <script src="common.js"></script>
     <script>
+      if (!Common.requireAuth("page1.html")) {
+        throw new Error("Auth required");
+      }
+
       function selectIssue(btn) {
         document
           .querySelectorAll(".issue-btn")

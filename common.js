@@ -30,6 +30,12 @@ window.Common = {
     localStorage.removeItem("isSignedIn");
   },
 
+  requireAuth(redirectTo) {
+    if (this.isSignedIn()) return true;
+    window.location.href = redirectTo || "page1.html";
+    return false;
+  },
+
   findRoute(query, context) {
     const normalized = query.trim().toLowerCase();
     if (!normalized) return null;

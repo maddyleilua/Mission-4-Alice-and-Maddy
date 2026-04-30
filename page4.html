@@ -194,6 +194,10 @@
 
     <script src="common.js"></script>
     <script>
+      if (!Common.requireAuth("page1.html")) {
+        throw new Error("Auth required");
+      }
+
       // 从 localStorage 读取 issue 类型并更新 title
       function initializeIssuePage() {
         const issueType =

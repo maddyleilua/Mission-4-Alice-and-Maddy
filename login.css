@@ -159,6 +159,19 @@ input[type="email"]::placeholder {
   color: #aab;
 }
 
+.inline-error {
+  display: none;
+  font-size: 12px;
+  color: #d94040;
+  margin-top: -8px;
+  margin-bottom: 12px;
+}
+
+.field-invalid {
+  border-color: #d94040 !important;
+  box-shadow: 0 0 0 3px rgba(217, 64, 64, 0.15) !important;
+}
+
 .remember {
   display: flex;
   align-items: center;

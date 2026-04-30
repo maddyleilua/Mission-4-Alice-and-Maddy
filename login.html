@@ -61,6 +61,7 @@
 
         <label for="email">Email <span class="required">*</span></label>
         <input type="email" id="email" placeholder="you@address.co.nz" />
+        <p id="email-error" class="inline-error"></p>
 
         <label class="remember"> <input type="checkbox" /> Remember me </label>
 
@@ -110,17 +111,28 @@
       function goToPage3() {
         const emailInput = document.getElementById("email");
         const emailValue = emailInput.value.trim();
+        const emailError = document.getElementById("email-error");
+
+        emailError.textContent = "";
+        emailError.style.display = "none";
+        emailInput.classList.remove("field-invalid");
 
         // 检查邮箱是否已填写且有效
         if (!emailValue) {
-          alert("Please enter your email address");
+          emailError.textContent = "Please enter your email address.";
+          emailError.style.display = "block";
+          emailInput.classList.add("field-invalid");
+          emailInput.focus();
           return;
         }
 
         // 简单的邮箱格式验证
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(emailValue)) {
-          alert("Please enter a valid email address");
+          emailError.textContent = "Please enter a valid email address.";
+          emailError.style.display = "block";
+          emailInput.classList.add("field-invalid");
+          emailInput.focus();
           return;
         }
 
