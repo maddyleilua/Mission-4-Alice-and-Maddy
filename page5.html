@@ -44,16 +44,17 @@
             Please provide accurate information so our team can find the issue.
           </p>
 
-          <label>Where is the issue located?*</label>
-          <input type="text" placeholder="Address,street,suburb" disabled />
+          <label for="missing-location">Where is the issue located?*</label>
+          <input id="missing-location" type="text" placeholder="Address,street,suburb" disabled />
 
-          <label>Please describe the issue*</label>
+          <label for="missing-description">Please describe the issue*</label>
           <textarea
+            id="missing-description"
             placeholder="Please provide details such as size or nearby landmarks."
             disabled
           ></textarea>
 
-          <label class="upload-label">Please upload photo*</label>
+          <label for="photo-input" class="upload-label">Please upload photo*</label>
           <p class="upload-hint">
             The system shall support uploading photos in multiple formats
             (including JPG, PNG, and HEIC)

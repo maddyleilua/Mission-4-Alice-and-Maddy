@@ -9,6 +9,7 @@ body {
   background: #dde3f0;
   min-height: 100dvh;
   margin: 0;
+  overflow-x: hidden;
 }
 
 .card {
@@ -449,4 +450,39 @@ footer p {
 .btn-forgot-save {
   background: #3a5bc7;
   color: #fff;
+}
+
+@media (max-width: 420px) {
+  nav {
+    padding: 12px 12px;
+    gap: 8px;
+  }
+
+  .search {
+    min-width: 0;
+  }
+
+  main {
+    padding: 22px 14px 28px;
+  }
+
+  .modal-overlay {
+    padding: 12px;
+  }
+
+  .modal {
+    padding: 22px 16px;
+  }
+}
+
+@media (min-width: 768px) {
+  main {
+    width: min(100%, 760px);
+    margin: 0 auto;
+    padding: 32px 28px 40px;
+  }
+
+  .modal {
+    width: min(100%, 440px);
+  }
 }
