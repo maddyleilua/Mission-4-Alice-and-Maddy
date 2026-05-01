@@ -22,7 +22,6 @@
       >Skip to main content</a
     >
 
-    <!-- !Header -->
     <header class="header">
       <nav
         class="navbar navbar-expand-md fixed-top"
@@ -48,6 +47,7 @@
               <li class="nav-item active">
                 <a
                   class="nav-link text-primary"
+                  aria-label="Back to home"
                   href="/Mission-4-Alice-and-Maddy/home.html"
                   >Home</a
                 >
@@ -60,7 +60,9 @@
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link text-primary" href="#">Sign Out</a>
+                <a class="nav-link text-primary" href="NeedHelp.html"
+                  >Need Help?</a
+                >
               </li>
             </ul>
           </div>
@@ -76,11 +78,10 @@
               A - Z
             </button>
 
-            <!-- Search Icon -->
+            <!-- Search Icon, not interactive, forgot and didn't have the time code for it-->
             <i
               class="bi bi-search text-primary fs-1 p-1"
-              role="img"
-              aria-label="Search"
+              aria-hidden="true"
             ></i>
           </div>
         </div>
@@ -98,17 +99,18 @@
           If you have any questions or concerns about your report, please
           contact us at <strong>City Council</strong>
         </p>
-        <p><strong>Phone:</strong> 0800 1234 5678</p>
+        <p><strong>Phone:</strong> <a href="tel:080012345678">0800 1234 5678</a></p>
         <p>
           <strong>Email:</strong>
           <a href="mailto:citycouncil@mail.com">citycouncil@mail.com</a>
         </p>
+        <!-- Added a elements to help with usability and accessibility -->
         <p>Make sure you have your reference handy with you</p>
 
         <p>
-          Our working hours are: <br /><strong>Monday to Friday: </strong
+          Our working hours are: <br /><time><strong>Monday to Friday: </strong
           >9am-10pm <br /><strong>Weekends and Public Holidays: </strong>
-          10am-5pm
+          10am-5pm</time>
         </p>
 
         <!-- Home button -->
@@ -122,26 +124,21 @@
         </button>
       </div>
     </main>
-    <!-- ---------------------------------------------- -->
     <!-- !FOOTER -->
-    <!-- ------------------------------------------ -->
     <footer class="footer text-white pt-5 pb-2">
       <div class="container justify-content-center text-center">
         <div class="column">
           <!-- need help -->
+
           <h5>Need Help?</h5>
           <p>Get in touch with us.</p>
           <!-- Contact us button -->
           <a
             href="NeedHelp.html"
             class="btn btn-outline-light text-white text-decoration-none"
+            aria-label="Contact us"
           >
-            <i
-              class="bi bi-envelope"
-              aria-label="Contact Us button"
-              aria-hidden="true"
-            ></i>
-            Contact us
+            <i class="bi bi-envelope" aria-hidden="true"></i> Contact us
           </a>
         </div>
         <!-- divider -->

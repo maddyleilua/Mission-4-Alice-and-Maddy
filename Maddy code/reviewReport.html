@@ -77,11 +77,10 @@
               A - Z
             </button>
 
-            <!-- Search Icon -->
+            <!-- Search Icon, not interactive, forgot and didn't have the time code for it-->
             <i
               class="bi bi-search text-primary fs-1 p-1"
-              role="img"
-              aria-label="Search"
+              aria-hidden="true"
             ></i>
           </div>
         </div>
@@ -121,10 +120,11 @@
               Use current location
             </button>
             <br />
-            <p id="location"></p>
+            <p id="location" aria-live="polite"></p>
 
             <!-- !MAP -->
             <iframe
+            title="Map showing report location"
               id="map"
               src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d9343.80396806113!2d174.77039956534725!3d-36.848335930718676!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2snz!4v1767826261837!5m2!1sen!2snz"
               width="300"
@@ -136,7 +136,10 @@
             ></iframe>
             <br />
             <br />
-            <label class="form-label"><strong>Photos:</strong></label>
+
+            <figure>
+            <figcaption class="form-label"><strong>Photos:</strong></figcaption>
+              <!-- Changed label element for Photos into a figcaption element instead for accessibility -->
             <div class="row">
               <div class="col-md-3 mb-3">
                 <img
@@ -161,6 +164,9 @@
                 <!-- Renamed alternative names to something more descriptive than the original "Photo 1, Photo 2, Photo 3 " -->
               </div>
             </div>
+</figure>
+
+
           </div>
         </div>
       </section>
@@ -171,17 +177,20 @@
           type="button"
           class="btn btn-primary"
           id="editButton"
+          aria-pressed="false"
           onclick="toggle()"
         >
+        <!-- Learned what a aria-pressed attribute is from Claude Code AI -->
           Edit
         </button>
-        <!-- I made the mistake of not adding the onclick attribute -->
+        <!-- I made the mistake of not adding the onclick attribute and wondered why my JavaScript wasn't working -->
         <button
           type="button"
           class="btn btn-primary mt-3"
           onclick="
             window.location.href = '/Mission-4-Alice-and-Maddy/page4.html'
           "
+          aria-label="Back button"
         >
           Back
         </button>
@@ -210,7 +219,7 @@
         <div class="modal-content">
           <!-- MODAL HEADER -->
           <div class="modal-header">
-            <h5 class="modal-title" id="loadingModalLocation">
+            <h5 class="modal-title" id="loadingModalLabel">
               Submitting Report
             </h5>
           </div>
@@ -252,7 +261,7 @@
             <p>We will review your report within 24 hours.</p>
             <p>
               <strong>Reference ID:</strong>
-              <input type="text" id="myInput" readonly />
+              <input type="text" id="myInput" readonly aria-label="Reference ID"/>
             </p>
             <!-- Added a read only, something new I discovered -->
 
@@ -267,7 +276,7 @@
               type="button"
               class="btn btn-primary mt-3"
               onclick="window.location.href = 'trackReport.html'"
-              aria-label="Tracky my report"
+              aria-label="Track my report"
             >
               Track my report
             </button>
@@ -383,9 +392,12 @@
 
           btn.textContent = "Save";
           inputIssueType.focus();
-          inputDescription.focus();
-          inputIssueLocation.focus();
+          // inputDescription.focus();
+          // inputIssueLocation.focus();
+          // removing these other two focus because I realised focus is only on one element at a time
           editing = true;
+          btn.setAttribute('aria-pressed', editing ? 'true' : 'false');
+// Added aria-pressed for accessibility
         } else {
           // Switch back to display mode
           IssueType.innerText = inputIssueType.value;
@@ -403,8 +415,13 @@
 
           btn.textContent = "Edit";
           editing = false;
+          btn.setAttribute('aria-pressed', editing ? 'true' : 'false');
+// Added aria-pressed for accessability
         }
       }
+
+
+
       // Randomly generate a unique ID for reference
       function generateReferenceID() {
         const letter = String.fromCharCode(65 + Math.floor(Math.random() * 26)); // A-Z

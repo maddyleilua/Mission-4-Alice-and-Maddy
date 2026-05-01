@@ -20,7 +20,6 @@
     <a href="#main-content" aria-label="Skip to main content" class="skip-link"
       >Skip to main content</a
     >
-    <!-- Stolen from Aadi -->
 
     <!-- !Header -->
     <header class="header">
@@ -81,8 +80,7 @@
             <!-- Search Icon -->
             <i
               class="bi bi-search text-primary fs-1 p-1"
-              role="img"
-              aria-label="Search"
+              aria-hidden="true"
             ></i>
           </div>
         </div>
@@ -109,11 +107,14 @@
                   class="form-control"
                   style="color: #1a2a6c"
                   id="reportId"
+                  aria-describedby="errorMsg hintMsg"
                   placeholder="Enter your report ID"
                   required
                 />
-                <p class="hint text-secondary">E.g. Z123456</p>
-                <p class="hint text-secondary" id="errorMsg">
+                <!-- added aria-describedby for accessibility -->
+                <p class="hint text-secondary" id="hintMsg">E.g. Z123456</p>
+                <p class="hint text-secondary" id="errorMsg" style="display:none" aria-live="polite" role="alert">
+                  <!-- Added display:none so its hidden before an error happens and it will appear -->
                   Please enter a valid ID (1 letter followed by 6 numbers)
                 </p>
                 <!-- Added a error message -->
@@ -126,7 +127,7 @@
               <br />
               <h6 class="text-center">Don't have your reference ID?</h6>
               <div class="text-center mt-2">
-                <a href="" class="text-center mt-2">Contact support</a>
+                <a href="NeedHelp.html" class="text-center mt-2">Contact support</a>
               </div>
               <!-- wrapped <a> contact support in a div to make it centered -->
             </form>
@@ -147,6 +148,7 @@
           <a
             href="NeedHelp.html"
             class="btn btn-outline-light text-white text-decoration-none"
+            aria-label="Contact Us"
           >
             <i class="bi bi-envelope"></i> Contact us
           </a>
@@ -157,9 +159,7 @@
         &copy; 2026 Fix It. All rights reserved.
       </div>
     </footer>
-  </body>
-
-  <!-- !JAVASCRIPT FOR ERROR HANDLINGS -->
+      <!-- !JAVASCRIPT FOR ERROR HANDLINGS -->
   <script>
     const form = document.querySelector("form");
     const input = document.getElementById("reportId");
@@ -196,4 +196,7 @@
       }
     });
   </script>
+  </body>
+
+
 </html>
